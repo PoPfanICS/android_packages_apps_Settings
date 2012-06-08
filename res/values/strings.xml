@@ -4470,4 +4470,11 @@ found in the list of installed apps.</string>
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
+
+    <!-- PoPfan -->
+    <string name="popfan_settings_title">PoPfan Settings</string>
+    <string name="pref_back_button_ends_call_title">Back button ends call</string>
+    <string name="pref_back_button_ends_call_summary">When pressed the Back button, the actual call ends</string>
+    <string name="se_launcher_settings_title">Xperia Launcher</string>
+    
 </resources>
