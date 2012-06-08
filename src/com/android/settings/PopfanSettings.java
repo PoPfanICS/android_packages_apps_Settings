@@ -65,4 +65,81 @@ public class PopfanSettings extends PreferenceFragment
     private static final String UPD = "Setting updated: ";
 
     private static final boolean DEBUG = true;
+
+    private static final String BACK_BUTTON_ENDS_CALL_PROP = "pref_back_button_ends_call";
+
+    private CheckBoxPreference mBackButtonEndsCall;
+
+    @Override
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+
+        mBackButtonEndsCall = (CheckBoxPreference) findPreference(BACK_BUTTON_ENDS_CALL_PROP);
+
+        Log.i(TAG, "\n\nWelcome in Daveee10's world!!! :D\n\n");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        final ContentResolver cr = getActivity().getContentResolver();
+
+        updateBackButtonEndsCall();
+    }
+
+    /* Update functions */
+    private void updateBackButtonEndsCall() {
+        mBackButtonEndsCall.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.BACK_BUTTON_ENDS_CALL, 0) == 1);
+            if (DEBUG) Log.i(TAG, UPD + "BackButtonEndsCall");
+    }
+
+    /* Write functions */
+    private void writeBackButtonEndsCall() {
+        Settings.System.putInt(getActivity().getContentResolver(), Settings.System.BACK_BUTTON_ENDS_CALL, mBackButtonEndsCall.isChecked() ? 1 : 0);
+            if (DEBUG) Log.i(TAG, WRT + "BackButtonEndsCall");
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+
+        if (Utils.isMonkeyRunning()) {
+            return false;
+        }
+
+        if (preference == mBackButtonEndsCall) {
+            writeBackButtonEndsCall();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        boolean handled = false;
+    }
+
+    private void dismissDialog() {
+        if (mOkDialog == null) return;
+        mOkDialog.dismiss();
+        mOkDialog = null;
+    }
+
+    public void onClick(DialogInterface dialog, int which) {
+        if (which == DialogInterface.BUTTON_POSITIVE) {
+            mOkClicked = true;
+        }
+    }
+
+    public void onDismiss(DialogInterface dialog) {
+        // Assuming that onClick gets called first
+        if (!mOkClicked) {
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        dismissDialog();
+        super.onDestroy();
+    }
 }
