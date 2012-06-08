@@ -66,14 +66,22 @@ public class PopfanSettings extends PreferenceFragment
 
     private static final boolean DEBUG = true;
 
+	private static final String CENTER_CLOCK_STATUS_BAR_PROP = "pref_center_clock_status_bar";
+
     private static final String BACK_BUTTON_ENDS_CALL_PROP = "pref_back_button_ends_call";
+
+	private CheckBoxPreference mCenterClockStatusBar;
 
     private CheckBoxPreference mBackButtonEndsCall;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+		
+		addPreferencesFromResource(R.xml.popfansettings_prefs);
 
+        mCenterClockStatusBar = (CheckBoxPreference) findPreference(CENTER_CLOCK_STATUS_BAR_PROP);
+        
         mBackButtonEndsCall = (CheckBoxPreference) findPreference(BACK_BUTTON_ENDS_CALL_PROP);
 
         Log.i(TAG, "\n\nWelcome in Daveee10's world!!! :D\n\n");
@@ -85,16 +93,30 @@ public class PopfanSettings extends PreferenceFragment
 
         final ContentResolver cr = getActivity().getContentResolver();
 
+		updateCenterClockStatusBar();
+
         updateBackButtonEndsCall();
     }
 
     /* Update functions */
+    private void updateCenterClockStatusBar() {
+        mCenterClockStatusBar.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.CENTER_CLOCK_STATUS_BAR, 0) == 1);
+            if (DEBUG) Log.i(TAG, UPD + "CenterClock");
+    }
+
     private void updateBackButtonEndsCall() {
         mBackButtonEndsCall.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.BACK_BUTTON_ENDS_CALL, 0) == 1);
             if (DEBUG) Log.i(TAG, UPD + "BackButtonEndsCall");
     }
 
     /* Write functions */
+	private void writeCenterClockStatusBar() {
+        Settings.System.putInt(getActivity().getContentResolver(), Settings.System.CENTER_CLOCK_STATUS_BAR, mCenterClockStatusBar.isChecked() ? 1 : 0);
+        	if (DEBUG) Log.i(TAG, WRT + "CenterClock");
+        Helpers.restartSystemUI();
+        	if (DEBUG) Log.i(TAG, "Restarting SystemUI");
+    }
+
     private void writeBackButtonEndsCall() {
         Settings.System.putInt(getActivity().getContentResolver(), Settings.System.BACK_BUTTON_ENDS_CALL, mBackButtonEndsCall.isChecked() ? 1 : 0);
             if (DEBUG) Log.i(TAG, WRT + "BackButtonEndsCall");
@@ -109,6 +131,8 @@ public class PopfanSettings extends PreferenceFragment
 
         if (preference == mBackButtonEndsCall) {
             writeBackButtonEndsCall();
+        } else if (preference == mCenterClockStatusBar) {
+            writeCenterClockStatusBar();
         }
 
         return false;

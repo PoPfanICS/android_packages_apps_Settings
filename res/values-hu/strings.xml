@@ -2205,6 +2205,8 @@
 
     <!-- PoPfan -->
     <string name="popfan_settings_title">PoPfan beállítások</string>
+    <string name="pref_center_clock_status_bar_title">Óra középen</string>
+    <string name="pref_center_clock_status_bar_summary">A státuszbáron középre igazítja az órát (Újraindítja a SystemUI-t)</string>
     <string name="pref_back_button_ends_call_title">Hívás befejezés</string>
     <string name="pref_back_button_ends_call_summary">Vissza gomb megnyomása befejezi az aktuális hívást</string>
     <string name="se_launcher_settings_title">Xperia kezdőképernyő</string>
