@@ -4488,6 +4488,7 @@ found in the list of installed apps.</string>
     <string name="pref_lockscreen_text_head">Custom Carrier Label</string>
     <string name="pref_lockscreen_text_subhead">Please enter a new one!</string>
     <string name="pref_lockscreen_text_notext">Custom label currently not set.</string>
+    <string name="pref_custom_carrier_label_reset_title">Delete custom text</string>
 
     <string name="se_launcher_settings_title">Xperia Launcher</string>
     

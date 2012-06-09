@@ -78,6 +78,7 @@ public class PopfanSettings extends PreferenceFragment
     private static final String ULTRABRIGHTNESS_PERSIST_PROP = "persist.sys.ultrabrightness";
 
     private static final String CUSTOM_CARRIER_LABEL_PROP = "pref_custom_carrier_label";
+    private static final String CUSTOM_CARRIER_LABEL_RESET = "pref_custom_carrier_label_reset";
 
 	private CheckBoxPreference mCenterClockStatusBar;
 
@@ -88,7 +89,9 @@ public class PopfanSettings extends PreferenceFragment
     private CheckBoxPreference mUltraBrightnessPref;
 
     private Preference mCustomCarrierLabel;
+    private Preference mCustomCarrierLabelReset;
 
+    private String mCustomLabelText = null;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -105,6 +108,7 @@ public class PopfanSettings extends PreferenceFragment
         mUltraBrightnessPref = (CheckBoxPreference) findPreference(ULTRA_BRIGHTNESS);
 
         mCustomCarrierLabel = findPreference(CUSTOM_CARRIER_LABEL_PROP);
+        mCustomCarrierLabelReset = findPreference(CUSTOM_CARRIER_LABEL_RESET);
 
         Log.i(TAG, "\n\nWelcome in Daveee10's world!!! :D\n\n");
     }
@@ -127,6 +131,11 @@ public class PopfanSettings extends PreferenceFragment
         updateCustomCarrierLabel();
     }
 
+
+    /* Reset functions */
+    private void resetCustomCarrierLabel() {
+         Settings.System.putInt(getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL, null);
+    }
 
     /* Update functions */
     private void updateCenterClockStatusBar() {
@@ -242,6 +251,8 @@ public class PopfanSettings extends PreferenceFragment
             writeUltraBrightness();
         } else if (preference == mCustomCarrierLabel) {
             writeCustomCarrierLabel();
+        } else if (preference == mCustomCarrierLabelReset) {
+            resetCustomCarrierLabel();
         }
 
         return false;
