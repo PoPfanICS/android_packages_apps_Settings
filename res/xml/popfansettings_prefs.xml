@@ -36,4 +36,10 @@
             android:summary="@string/pref_disable_bootanimation_summary"
             android:defaultValue="false" />
 
+        <CheckBoxPreference
+            android:key="pref_ultra_brightness"
+            android:title="@string/pref_ultra_brightness_title"
+            android:summary="@string/pref_ultra_brightness_summary"
+            android:defaultValue="false" />
+
 </PreferenceScreen>

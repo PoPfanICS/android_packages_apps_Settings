@@ -72,12 +72,17 @@ public class PopfanSettings extends PreferenceFragment
 
     private static final String DISABLE_BOOTANIMATION_PROP = "pref_disable_bootanimation";
     private static final String DISABLE_BOOTANIMATION_PERSIST_PROP = "persist.sys.nobootanimation";
+    private static final String ULTRA_BRIGHTNESS = "pref_ultra_brightness";
+    private static final String ULTRABRIGHTNESS_PROP = "sys.ultrabrightness";
+    private static final String ULTRABRIGHTNESS_PERSIST_PROP = "persist.sys.ultrabrightness";
 
 	private CheckBoxPreference mCenterClockStatusBar;
 
     private CheckBoxPreference mBackButtonEndsCall;
 
     private CheckBoxPreference mDisableBootanimPref;
+    private CheckBoxPreference mUltraBrightnessPref;
+
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -90,9 +95,11 @@ public class PopfanSettings extends PreferenceFragment
         mBackButtonEndsCall = (CheckBoxPreference) findPreference(BACK_BUTTON_ENDS_CALL_PROP);
 
         mDisableBootanimPref = (CheckBoxPreference) findPreference(DISABLE_BOOTANIMATION_PROP);
+        mUltraBrightnessPref = (CheckBoxPreference) findPreference(ULTRA_BRIGHTNESS);
 
         Log.i(TAG, "\n\nWelcome in Daveee10's world!!! :D\n\n");
     }
+
 
     @Override
     public void onResume() {
@@ -105,7 +112,9 @@ public class PopfanSettings extends PreferenceFragment
         updateBackButtonEndsCall();
 
         updateDisableBootAnimation();
+        updateUltraBrightness();
     }
+
 
     /* Update functions */
     private void updateCenterClockStatusBar() {
@@ -123,6 +132,14 @@ public class PopfanSettings extends PreferenceFragment
         mDisableBootanimPref.setChecked("1".equals(disableBootanimation));
             if (DEBUG) Log.i(TAG, UPD + "BootAnimation");
     }
+
+    private void updateUltraBrightness() {
+        if (SystemProperties.getInt(ULTRABRIGHTNESS_PERSIST_PROP, 0) == 0)
+            mUltraBrightnessPref.setChecked(false);
+        else
+            mUltraBrightnessPref.setChecked(true);
+    }
+
 
     /* Write functions */
 	private void writeCenterClockStatusBar() {
@@ -142,6 +159,14 @@ public class PopfanSettings extends PreferenceFragment
         if (DEBUG) Log.i(TAG, WRT + "BootAnimation");
     }
 
+    private void writeUltraBrightness() {
+        SystemProperties.set(ULTRABRIGHTNESS_PERSIST_PROP, mUltraBrightnessPref.isChecked() ? "1" : "0");
+        String WOL = (mUltraBrightnessPref.isChecked() ? "i2c_pwm" : "i2c_pwm_als");
+        writeOneLine("/sys/devices/platform/i2c-adapter/i2c-0/0-0036/mode", WOL);
+        writeOneLine("/data/popfan/brightnessmode", WOL);
+        if (DEBUG) Log.i(TAG, WRT + "Ultra brightness");
+    }
+
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -156,10 +181,13 @@ public class PopfanSettings extends PreferenceFragment
             writeCenterClockStatusBar();
         } else if (preference == mDisableBootanimPref) {
             writeDisableBootAnimation();
-        } 
+        } else if (preference == mUltraBrightnessPref) {
+            writeUltraBrightness();
+        }
 
         return false;
     }
+
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -184,9 +212,27 @@ public class PopfanSettings extends PreferenceFragment
         }
     }
 
+
     @Override
     public void onDestroy() {
         dismissDialog();
         super.onDestroy();
+    }
+
+
+    public static boolean writeOneLine(String fname, String value) {
+        try {
+            FileWriter fw = new FileWriter(fname);
+            try {
+                fw.write(value);
+            } finally {
+                fw.close();
+            }
+        } catch (IOException e) {
+            String Error = "Error writing to " + fname + ". Exception: ";
+            if (DEBUG) Log.e(TAG, Error, e);
+            return false;
+        }
+        return true;
     }
 }
