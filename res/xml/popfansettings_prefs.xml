@@ -18,6 +18,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/popfan_settings_title">
 
+    <PreferenceCategory
+        android:key="statbar"
+        android:title="@string/cat_status_bar">
+
         <CheckBoxPreference
             android:key="pref_center_clock_status_bar"
             android:title="@string/pref_center_clock_status_bar_title"
@@ -32,6 +36,12 @@
         <Preference
             android:key="pref_clock_color_reset"
             android:title="@string/pref_clock_color_reset_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="hardkeys"
+        android:title="@string/cat_hard_keys">
 
         <CheckBoxPreference
             android:key="pref_back_button_ends_call"
@@ -51,6 +61,12 @@
             android:summary="@string/pref_volume_adjust_sounds_enable_summary"
             android:persistent="true" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="system"
+        android:title="@string/cat_system">
+
         <CheckBoxPreference
             android:key="pref_disable_bootanimation"
             android:title="@string/pref_disable_bootanimation_title"
@@ -63,6 +79,12 @@
             android:summary="@string/pref_ultra_brightness_summary"
             android:defaultValue="false" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lockscreen"
+        android:title="@string/cat_lockscreen">
+
         <Preference
             android:key="pref_custom_carrier_label"
             android:title="@string/pref_lockscreen_text_title" />
@@ -70,5 +92,7 @@
         <Preference
             android:key="pref_custom_carrier_label_reset"
             android:title="@string/pref_custom_carrier_label_reset_title" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

@@ -4470,6 +4470,11 @@ found in the list of installed apps.</string>
     <string name="pref_lockscreen_text_notext">Custom label currently not set.</string>
     <string name="pref_custom_carrier_label_reset_title">Delete custom text</string>
 
+    <string name="cat_status_bar">Status bar</string>
+    <string name="cat_hard_keys">HW Key actions</string>
+    <string name="cat_system">System properties</string>
+    <string name="cat_lockscreen">Lockscreen</string>
+
     <string name="se_launcher_settings_title">Xperia Launcher</string>
     
 </resources>

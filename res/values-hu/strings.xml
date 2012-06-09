@@ -2215,5 +2215,10 @@
     <string name="pref_lockscreen_text_notext">Nincs beállítva egyedi szöveg.</string>
     <string name="pref_custom_carrier_label_reset_title">Egyedi szöveg törlése</string>
 
+    <string name="cat_status_bar">Értesítési sáv</string>
+    <string name="cat_hard_keys">Fizikai gombok</string>
+    <string name="cat_system">Rendszer tuning</string>
+    <string name="cat_lockscreen">Zárképernyő</string>
+
     <string name="se_launcher_settings_title">Xperia kezdőképernyő</string>
 </resources>
