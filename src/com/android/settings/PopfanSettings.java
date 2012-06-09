@@ -79,6 +79,7 @@ public class PopfanSettings extends PreferenceFragment
     private static final String ULTRA_BRIGHTNESS = "pref_ultra_brightness";
     private static final String ULTRABRIGHTNESS_PROP = "sys.ultrabrightness";
     private static final String ULTRABRIGHTNESS_PERSIST_PROP = "persist.sys.ultrabrightness";
+    private static final String ADB_NOTIFY_PROP = "pref_adb_notify";
 
     private static final String CUSTOM_CARRIER_LABEL_PROP = "pref_custom_carrier_label";
     private static final String CUSTOM_CARRIER_LABEL_RESET = "pref_custom_carrier_label_reset";
@@ -93,6 +94,7 @@ public class PopfanSettings extends PreferenceFragment
 
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mUltraBrightnessPref;
+    private CheckBoxPreference mAdbNotifyPref;
 
     private Preference mCustomCarrierLabel;
     private Preference mCustomCarrierLabelReset;
@@ -117,6 +119,7 @@ public class PopfanSettings extends PreferenceFragment
 
         mDisableBootanimPref = (CheckBoxPreference) findPreference(DISABLE_BOOTANIMATION_PROP);
         mUltraBrightnessPref = (CheckBoxPreference) findPreference(ULTRA_BRIGHTNESS);
+        mAdbNotifyPref = (CheckBoxPreference) findPreference(ADB_NOTIFY_PROP);
 
         mCustomCarrierLabel = findPreference(CUSTOM_CARRIER_LABEL_PROP);
         mCustomCarrierLabelReset = findPreference(CUSTOM_CARRIER_LABEL_RESET);
@@ -139,6 +142,7 @@ public class PopfanSettings extends PreferenceFragment
 
         updateDisableBootAnimation();
         updateUltraBrightness();
+        updateAdbNotify();
 
         updateCustomCarrierLabel();
     }
@@ -187,6 +191,11 @@ public class PopfanSettings extends PreferenceFragment
             mUltraBrightnessPref.setChecked(true);
     }
 
+    private void updateAdbNotify() {
+        mAdbNotifyPref.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(), Settings.Secure.ADB_NOTIFY, 1) == 1);
+        if (DEBUG) Log.i(TAG, UPD + "AdbNotify");
+    }
+
     private void updateCustomCarrierLabel() {
         mCustomLabelText = Settings.System.getString(getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL);
         if (mCustomLabelText == null) {
@@ -221,16 +230,21 @@ public class PopfanSettings extends PreferenceFragment
     }
 
     private void writeDisableBootAnimation() {
-        SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP, mDisableBootanimPref.isChecked() ? "1" : "0");
+        SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP, mDisableBootanimPref.isChecked() ? 1 : 0);
         if (DEBUG) Log.i(TAG, WRT + "BootAnimation");
     }
 
     private void writeUltraBrightness() {
-        SystemProperties.set(ULTRABRIGHTNESS_PERSIST_PROP, mUltraBrightnessPref.isChecked() ? "1" : "0");
+        SystemProperties.set(ULTRABRIGHTNESS_PERSIST_PROP, mUltraBrightnessPref.isChecked() ? 1 : 0);
         String WOL = (mUltraBrightnessPref.isChecked() ? "i2c_pwm" : "i2c_pwm_als");
         writeOneLine("/sys/devices/platform/i2c-adapter/i2c-0/0-0036/mode", WOL);
         writeOneLine("/data/popfan/brightnessmode", WOL);
         if (DEBUG) Log.i(TAG, WRT + "Ultra brightness");
+    }
+
+    private void writeAdbNotify() {
+        Settings.Secure.putInt(getActivity().getContentResolver(), Settings.Secure.ADB_NOTIFY, mAdbIcon.isChecked() ? 1 : 0);
+        if (DEBUG) Log.i(TAG, WRT + "AdbNotify");
     }
 
     private void writeCustomCarrierLabel() {
@@ -279,6 +293,8 @@ public class PopfanSettings extends PreferenceFragment
             writeDisableBootAnimation();
         } else if (preference == mUltraBrightnessPref) {
             writeUltraBrightness();
+        } else if (preference == mAdbNotifyPref) {
+            writeAdbNotify();
         } else if (preference == mCustomCarrierLabel) {
             writeCustomCarrierLabel();
         } else if (preference == mCustomCarrierLabelReset) {
