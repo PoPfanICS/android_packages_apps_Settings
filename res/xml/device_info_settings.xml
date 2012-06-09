@@ -143,4 +143,10 @@
                 android:title="@string/build_number"
                 android:summary="@string/device_info_default"/>
 
+        <!-- Owner info -->
+        <Preference android:key="popfan_owner"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/builder_info_title"
+                android:summary="@string/builder_info_summary"/>
+
 </PreferenceScreen>

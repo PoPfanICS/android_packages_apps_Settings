@@ -4484,4 +4484,6 @@ found in the list of installed apps.</string>
 
     <string name="se_launcher_settings_title">Xperia Launcher</string>
     
+    <string name="builder_info_title">Builder</string>
+    <string name="builder_info_summary">PoPfan-Team</string>
 </resources>

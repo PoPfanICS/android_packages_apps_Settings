@@ -2228,4 +2228,6 @@
     <string name="cat_lockscreen">Zárképernyő</string>
 
     <string name="se_launcher_settings_title">Xperia kezdőképernyő</string>
+
+    <string name="builder_info_title">Készítő</string>
 </resources>
