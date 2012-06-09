@@ -2209,5 +2209,7 @@
     <string name="pref_center_clock_status_bar_summary">A státuszbáron középre igazítja az órát (Újraindítja a SystemUI-t)</string>
     <string name="pref_back_button_ends_call_title">Hívás befejezés</string>
     <string name="pref_back_button_ends_call_summary">Vissza gomb megnyomása befejezi az aktuális hívást</string>
+    <string name="pref_disable_bootanimation_title">Gyorsabb bootolás</string>
+    <string name="pref_disable_bootanimation_summary">Kikapcsolja a boot animációt, így felgyorsítva az indítást</string>
     <string name="se_launcher_settings_title">Xperia kezdőképernyő</string>
 </resources>

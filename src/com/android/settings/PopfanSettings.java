@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (C) 2012 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -70,9 +70,14 @@ public class PopfanSettings extends PreferenceFragment
 
     private static final String BACK_BUTTON_ENDS_CALL_PROP = "pref_back_button_ends_call";
 
+    private static final String DISABLE_BOOTANIMATION_PROP = "pref_disable_bootanimation";
+    private static final String DISABLE_BOOTANIMATION_PERSIST_PROP = "persist.sys.nobootanimation";
+
 	private CheckBoxPreference mCenterClockStatusBar;
 
     private CheckBoxPreference mBackButtonEndsCall;
+
+    private CheckBoxPreference mDisableBootanimPref;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -83,6 +88,8 @@ public class PopfanSettings extends PreferenceFragment
         mCenterClockStatusBar = (CheckBoxPreference) findPreference(CENTER_CLOCK_STATUS_BAR_PROP);
         
         mBackButtonEndsCall = (CheckBoxPreference) findPreference(BACK_BUTTON_ENDS_CALL_PROP);
+
+        mDisableBootanimPref = (CheckBoxPreference) findPreference(DISABLE_BOOTANIMATION_PROP);
 
         Log.i(TAG, "\n\nWelcome in Daveee10's world!!! :D\n\n");
     }
@@ -96,6 +103,8 @@ public class PopfanSettings extends PreferenceFragment
 		updateCenterClockStatusBar();
 
         updateBackButtonEndsCall();
+
+        updateDisableBootAnimation();
     }
 
     /* Update functions */
@@ -107,6 +116,12 @@ public class PopfanSettings extends PreferenceFragment
     private void updateBackButtonEndsCall() {
         mBackButtonEndsCall.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.BACK_BUTTON_ENDS_CALL, 0) == 1);
             if (DEBUG) Log.i(TAG, UPD + "BackButtonEndsCall");
+    }
+
+    private void updateDisableBootAnimation() {
+        String disableBootanimation = SystemProperties.get(DISABLE_BOOTANIMATION_PERSIST_PROP, 0);
+        mDisableBootanimPref.setChecked("1".equals(disableBootanimation));
+            if (DEBUG) Log.i(TAG, UPD + "BootAnimation");
     }
 
     /* Write functions */
@@ -122,6 +137,12 @@ public class PopfanSettings extends PreferenceFragment
             if (DEBUG) Log.i(TAG, WRT + "BackButtonEndsCall");
     }
 
+    private void writeDisableBootAnimation() {
+        SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP, mDisableBootanimPref.isChecked() ? "1" : "0");
+        if (DEBUG) Log.i(TAG, WRT + "BootAnimation");
+    }
+
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 
@@ -133,7 +154,9 @@ public class PopfanSettings extends PreferenceFragment
             writeBackButtonEndsCall();
         } else if (preference == mCenterClockStatusBar) {
             writeCenterClockStatusBar();
-        }
+        } else if (preference == mDisableBootanimPref) {
+            writeDisableBootAnimation();
+        } 
 
         return false;
     }

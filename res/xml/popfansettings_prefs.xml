@@ -30,4 +30,10 @@
             android:summary="@string/pref_back_button_ends_call_summary"
             android:defaultValue="true" />
 
+        <CheckBoxPreference
+            android:key="pref_disable_bootanimation"
+            android:title="@string/pref_disable_bootanimation_title"
+            android:summary="@string/pref_disable_bootanimation_summary"
+            android:defaultValue="false" />
+
 </PreferenceScreen>

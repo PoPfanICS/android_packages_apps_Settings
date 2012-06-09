@@ -4477,6 +4477,8 @@ found in the list of installed apps.</string>
     <string name="pref_center_clock_status_bar_summary">On the status bar aligns the clock to center (Wait for restarting SystemUI)</string>
     <string name="pref_back_button_ends_call_title">Back button ends call</string>
     <string name="pref_back_button_ends_call_summary">When pressed the Back button, the actual call ends</string>
+    <string name="pref_disable_bootanimation_title">Disable boot animation</string>
+    <string name="pref_disable_bootanimation_summary">Don\'t show the boot animation for faster boot</string>
     <string name="se_launcher_settings_title">Xperia Launcher</string>
     
 </resources>
