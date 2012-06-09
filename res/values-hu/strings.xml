@@ -2205,6 +2205,8 @@
     <string name="pref_menu_button_answers_call_summary">Menu gomb megnyomása fogadja a bejövő hívást</string>
     <string name="pref_volume_adjust_sounds_enable_title">Hangerő váltáskor hang</string>
     <string name="pref_volume_adjust_sounds_enable_summary">Hangerő gombokkal történő váltáskor engedélyezi a pittyenést</string>
+    <string name="pref_disable_airplane_title">Repülőgép üzemmód mutatása</string>
+    <string name="pref_disable_screenshot_title">Képernyőmentés mutatása</string>
     <string name="pref_disable_bootanimation_title">Gyorsabb bootolás</string>
     <string name="pref_disable_bootanimation_summary">Kikapcsolja a boot animációt, így felgyorsítva az indítást</string>
     <string name="pref_ultra_brightness_title">Extra fényerő</string>
@@ -2221,6 +2223,7 @@
 
     <string name="cat_status_bar">Értesítési sáv</string>
     <string name="cat_hard_keys">Fizikai gombok</string>
+    <string name="cat_power_dialog">Kikapcsolás menü</string>
     <string name="cat_system">Rendszer tuning</string>
     <string name="cat_lockscreen">Zárképernyő</string>
 

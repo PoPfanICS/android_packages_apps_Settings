@@ -64,6 +64,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="power_dialog"
+        android:title="@string/cat_power_dialog">
+
+        <CheckBoxPreference
+            android:key="pref_disable_airplane"
+            android:title="@string/pref_disable_airplane_title" />
+
+        <CheckBoxPreference
+            android:key="pref_disable_screenshot"
+            android:title="@string/pref_disable_screenshot_title" />
+
+    <PreferenceCategory
         android:key="system"
         android:title="@string/cat_system">
 

@@ -74,6 +74,9 @@ public class PopfanSettings extends PreferenceFragment
     private static final String MENU_BUTTON_ANSWERS_CALL_PROP = "pref_menu_button_answers_call";
     private static final String KEY_VOLUME_ADJUST_SOUNDS_PROP = "pref_volume_adjust_sounds";
 
+    private static final String DISABLE_AIRPLANE_PROP = "pref_disable_airplane";
+    private static final String DISABLE_SCREENSHOT_PROP = "pref_disable_screenshot";
+
     private static final String DISABLE_BOOTANIMATION_PROP = "pref_disable_bootanimation";
     private static final String DISABLE_BOOTANIMATION_PERSIST_PROP = "persist.sys.nobootanimation";
     private static final String ULTRA_BRIGHTNESS = "pref_ultra_brightness";
@@ -93,6 +96,9 @@ public class PopfanSettings extends PreferenceFragment
     private CheckBoxPreference mMenuButtonAnswersCall;
     private CheckBoxPreference mVolumeAdjustSounds;
 
+    private CheckBoxPreference mDisableAirplanePref;
+    private CheckBoxPreference mDisableScreenshotPref;
+    
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mUltraBrightnessPref;
     private CheckBoxPreference mAdbNotifyPref;
@@ -119,6 +125,9 @@ public class PopfanSettings extends PreferenceFragment
         mVolumeAdjustSounds = (CheckBoxPreference) findPreference(KEY_VOLUME_ADJUST_SOUNDS_PROP);
         mVolumeAdjustSounds.setPersistent(false);
 
+        mDisableAirplanePref = (CheckBoxPreference) findPreference(DISABELE_AIRPLANE_PROP);
+        mDisableScreenshotPref = (CheckBoxPreference) findPreference(DISABLE_SCREENSHOT_PROP);
+
         mDisableBootanimPref = (CheckBoxPreference) findPreference(DISABLE_BOOTANIMATION_PROP);
         mUltraBrightnessPref = (CheckBoxPreference) findPreference(ULTRA_BRIGHTNESS);
         mAdbNotifyPref = (CheckBoxPreference) findPreference(ADB_NOTIFY_PROP);
@@ -142,6 +151,9 @@ public class PopfanSettings extends PreferenceFragment
         updateBackButtonEndsCall();
         updateMenuButtonAnswersCall();
         updateVolumeAdjustSound();
+
+        updateDisableAirplane();
+        updateDisableScreenshot();
 
         updateDisableBootAnimation();
         updateUltraBrightness();
@@ -180,6 +192,16 @@ public class PopfanSettings extends PreferenceFragment
     private void updateVolumeAdjustSound() {
         mVolumeAdjustSounds.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.VOLUME_ADJUST_SOUNDS_ENABLED, 1) != 0);
             if (DEBUG) Log.i(TAG, UPD + "VolumeAdjustSound");
+    }
+
+    private void updateDisableAirplane() {
+        mDisableAirplanePref.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.POWER_DIALOG_SHOW_AIRPLANE, 1) == 1);
+            if (DEBUG) Log.i(TAG, UPD + "Airplane");
+    }
+
+    private void updateDisableScreenshot() {
+        mDisableScreenshotPref.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.POWER_DIALOG_SHOW_SCREENSHOT, 1) == 1);
+            if (DEBUG) Log.i(TAG, UPD + "Screenshot");
     }
 
     private void updateDisableBootAnimation() {
@@ -239,6 +261,16 @@ public class PopfanSettings extends PreferenceFragment
             if (DEBUG) Log.i(TAG, WRT + "VolumeAdjustSound");
     }
 
+    private void writeDisableAirplane() {
+        Settings.System.putInt(getActivity().getContentResolver(), Settings.System.POWER_DIALOG_SHOW_AIRPLANE, mDisableAirplanePref.isChecked() ? 1 : 0);
+            if (DEBUG) Log.i(TAG, WRT + "Airplane");
+    }    
+
+    private void writeDisableScreenshot() {
+        Settings.System.putInt(getActivity().getContentResolver(), Settings.System.POWER_DIALOG_SHOW_SCREENSHOT, mDisableScreenshotPref.isChecked() ? 1 : 0);
+            if (DEBUG) Log.i(TAG, WRT + "Screenshot");
+    }
+
     private void writeDisableBootAnimation() {
         SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP, mDisableBootanimPref.isChecked() ? 1 : 0);
         if (DEBUG) Log.i(TAG, WRT + "BootAnimation");
@@ -253,7 +285,7 @@ public class PopfanSettings extends PreferenceFragment
     }
 
     private void writeAdbNotify() {
-        Settings.Secure.putInt(getActivity().getContentResolver(), Settings.Secure.ADB_NOTIFY, mAdbIcon.isChecked() ? 1 : 0);
+        Settings.Secure.putInt(getActivity().getContentResolver(), Settings.Secure.ADB_NOTIFY, mAdbNotifyPref.isChecked() ? 1 : 0);
         if (DEBUG) Log.i(TAG, WRT + "AdbNotify");
     }
 
@@ -306,6 +338,10 @@ public class PopfanSettings extends PreferenceFragment
             writeMenuButtonAnswersCall();
         } else if (preference == mVolumeAdjustSounds) {
             writeVolumeAdjustSound();
+        } else if (preference == mDisableAirplanePref) {
+            writeDisableAirplane();
+        } else if (preference == mDisableScreenshotPref) {
+            writeDisableScreenshot();
         } else if (preference == mDisableBootanimPref) {
             writeDisableBootAnimation();
         } else if (preference == mUltraBrightnessPref) {
