@@ -4471,6 +4471,8 @@ found in the list of installed apps.</string>
     <string name="pref_lockscreen_text_subhead">Please enter a new one!</string>
     <string name="pref_lockscreen_text_notext">Custom label currently not set.</string>
     <string name="pref_custom_carrier_label_reset_title">Delete custom text</string>
+    <string name="pref_lockscreen_battery_title">Lockscreen Battery Percentage</string>
+    <string name="pref_lockscreen_battery_summary">Always show battery percentage on the lockscreen</string>
 
     <string name="cat_status_bar">Status bar</string>
     <string name="cat_hard_keys">HW Key actions</string>

@@ -83,6 +83,7 @@ public class PopfanSettings extends PreferenceFragment
 
     private static final String CUSTOM_CARRIER_LABEL_PROP = "pref_custom_carrier_label";
     private static final String CUSTOM_CARRIER_LABEL_RESET = "pref_custom_carrier_label_reset";
+    private static final String LOCKSCREEN_BATTERY_PROP = "pref_lockscreen_battery";
 
 	private CheckBoxPreference mCenterClockStatusBar;
     private Preference mClockColorReset;
@@ -98,6 +99,7 @@ public class PopfanSettings extends PreferenceFragment
 
     private Preference mCustomCarrierLabel;
     private Preference mCustomCarrierLabelReset;
+    private CheckBoxPreference mLockscreenBattery;
 
     private String mCustomLabelText = null;
 
@@ -123,6 +125,7 @@ public class PopfanSettings extends PreferenceFragment
 
         mCustomCarrierLabel = findPreference(CUSTOM_CARRIER_LABEL_PROP);
         mCustomCarrierLabelReset = findPreference(CUSTOM_CARRIER_LABEL_RESET);
+        mLockscreenBattery = (CheckBoxPreference) findPreference(LOCKSCREEN_BATTERY_PROP);
 
         Log.i(TAG, "\n\nWelcome in Daveee10's world!!! :D\n\n");
     }
@@ -145,6 +148,7 @@ public class PopfanSettings extends PreferenceFragment
         updateAdbNotify();
 
         updateCustomCarrierLabel();
+        updateLockscreenBattery();
     }
 
 
@@ -203,6 +207,12 @@ public class PopfanSettings extends PreferenceFragment
         } else {
             mCustomLabel.setSummary(mCustomLabelText);
         }
+        if (DEBUG) Log.i(TAG, UPD + "CustomCarrierLabel");
+    }
+
+    private void updateLockscreenBattery() {
+        mLockscreenBattery.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.LOCKSCREEN_BATTERY, 0) == 1);
+        if (DEBUG) Log.i(TAG, UPD + "LockscreenBattery");
     }
 
 
@@ -260,15 +270,22 @@ public class PopfanSettings extends PreferenceFragment
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String value = ((Spannable) input.getText()).toString();
                         Settings.System.putString(getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL, value);
+                        if (DEBUG) Log.i(TAG, WRT + "CustomCarrierLabel");
                         updateCustomCarrierLabel();
                     }
                 });
 
                 alert.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
+                        if (DEBUG) Log.i(TAG, "Settings not changed: CustomCarrierLabel");
                     }
                 });
             alert.show();
+    }
+
+    private void writeLockscreenBattery() {
+        Settings.System.putInt(getActivity().getContentResolver(), Settings.System.LOCKSCREEN_BATTERY, mLockscreenBattery.isChecked() ? 1 : 0);
+        if (DEBUG) Log.i(TAG, WRT + "LockscreenBattery");
     }
 
 
@@ -299,6 +316,8 @@ public class PopfanSettings extends PreferenceFragment
             writeCustomCarrierLabel();
         } else if (preference == mCustomCarrierLabelReset) {
             resetCustomCarrierLabel();
+        } else if (preference == mLockscreenBattery) {
+            writeLockscreenBattery();
         }
 
         return false;
