@@ -2216,6 +2216,10 @@
     <string name="pref_disable_bootanimation_summary">Kikapcsolja a boot animációt, így felgyorsítva az indítást</string>
     <string name="pref_ultra_brightness_title">Extra fényerő</string>
     <string name="pref_ultra_brightness_summary">Magasabb fényerőt biztosít (Nagyobb akkuhasználat)</string>
+    <string name="pref_lockscreen_text_title">Zárképernyő szöveg</string>
+    <string name="pref_lockscreen_text_head">Egyedi zárképernyő szöveg</string>
+    <string name="pref_lockscreen_text_subhead">Írj be egy új szöveget!</string>
+    <string name="pref_lockscreen_text_notext">Nincs beállítva egyedi szöveg.</string>
 
     <string name="se_launcher_settings_title">Xperia kezdőképernyő</string>
 </resources>

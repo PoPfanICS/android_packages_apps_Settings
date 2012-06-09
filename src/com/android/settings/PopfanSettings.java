@@ -77,6 +77,8 @@ public class PopfanSettings extends PreferenceFragment
     private static final String ULTRABRIGHTNESS_PROP = "sys.ultrabrightness";
     private static final String ULTRABRIGHTNESS_PERSIST_PROP = "persist.sys.ultrabrightness";
 
+    private static final String CUSTOM_CARRIER_LABEL_PROP = "pref_custom_carrier_label";
+
 	private CheckBoxPreference mCenterClockStatusBar;
 
     private CheckBoxPreference mBackButtonEndsCall;
@@ -84,6 +86,8 @@ public class PopfanSettings extends PreferenceFragment
 
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mUltraBrightnessPref;
+
+    private Preference mCustomCarrierLabel;
 
 
     @Override
@@ -99,6 +103,8 @@ public class PopfanSettings extends PreferenceFragment
 
         mDisableBootanimPref = (CheckBoxPreference) findPreference(DISABLE_BOOTANIMATION_PROP);
         mUltraBrightnessPref = (CheckBoxPreference) findPreference(ULTRA_BRIGHTNESS);
+
+        mCustomCarrierLabel = findPreference(CUSTOM_CARRIER_LABEL_PROP);
 
         Log.i(TAG, "\n\nWelcome in Daveee10's world!!! :D\n\n");
     }
@@ -117,6 +123,8 @@ public class PopfanSettings extends PreferenceFragment
 
         updateDisableBootAnimation();
         updateUltraBrightness();
+
+        updateCustomCarrierLabel();
     }
 
 
@@ -147,6 +155,15 @@ public class PopfanSettings extends PreferenceFragment
             mUltraBrightnessPref.setChecked(false);
         else
             mUltraBrightnessPref.setChecked(true);
+    }
+
+    private void updateCustomCarrierLabel() {
+        mCustomLabelText = Settings.System.getString(getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL);
+        if (mCustomLabelText == null) {
+            mCustomLabel.setSummary(R.string.pref_lockscreen_text_notext);
+        } else {
+            mCustomLabel.setSummary(mCustomLabelText);
+        }
     }
 
 
@@ -181,6 +198,30 @@ public class PopfanSettings extends PreferenceFragment
         if (DEBUG) Log.i(TAG, WRT + "Ultra brightness");
     }
 
+    private void writeCustomCarrierLabel() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+            alert.setTitle(R.string.pref_lockscreen_text_head);
+            alert.setMessage(R.string.pref_lockscreen_text_subhead);
+
+                final EditText input = new EditText(getActivity());
+
+                input.setText(mCustomLabelText != null ? mCustomLabelText : "");
+                alert.setView(input);
+                alert.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String value = ((Spannable) input.getText()).toString();
+                        Settings.System.putString(getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL, value);
+                        updateCustomCarrierLabel();
+                    }
+                });
+
+                alert.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                    }
+                });
+            alert.show();
+    }
+
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -199,6 +240,8 @@ public class PopfanSettings extends PreferenceFragment
             writeDisableBootAnimation();
         } else if (preference == mUltraBrightnessPref) {
             writeUltraBrightness();
+        } else if (preference == mCustomCarrierLabel) {
+            writeCustomCarrierLabel();
         }
 
         return false;

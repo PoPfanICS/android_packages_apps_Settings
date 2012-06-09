@@ -4484,6 +4484,10 @@ found in the list of installed apps.</string>
     <string name="pref_disable_bootanimation_summary">Don\'t show the boot animation for faster boot</string>
     <string name="pref_ultra_brightness_title">Ultra brightness</string>
     <string name="pref_ultra_brightness_summary">Increases the brightness level (may increase battery consumption)</string>
+    <string name="pref_lockscreen_text_title">Custom Carrier Label</string>
+    <string name="pref_lockscreen_text_head">Custom Carrier Label</string>
+    <string name="pref_lockscreen_text_subhead">Please enter a new one!</string>
+    <string name="pref_lockscreen_text_notext">Custom label currently not set.</string>
 
     <string name="se_launcher_settings_title">Xperia Launcher</string>
     

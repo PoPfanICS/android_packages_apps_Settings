@@ -48,4 +48,8 @@
             android:summary="@string/pref_ultra_brightness_summary"
             android:defaultValue="false" />
 
+        <Preference
+            android:key="pref_custom_carrier_label"
+            android:title="@string/pref_lockscreen_text_title" />
+
 </PreferenceScreen>
