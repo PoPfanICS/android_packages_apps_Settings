@@ -2203,6 +2203,8 @@
     <string name="pref_back_button_ends_call_summary">Vissza gomb megnyomása befejezi az aktuális hívást</string>
     <string name="pref_menu_button_answers_call_title">Hívás fogadás</string>
     <string name="pref_menu_button_answers_call_summary">Menu gomb megnyomása fogadja a bejövő hívást</string>
+    <string name="pref_volume_adjust_sounds_enable_title">Hangerő váltáskor hang</string>
+    <string name="pref_volume_adjust_sounds_enable_summary">Hangerő gombokkal történő váltáskor engedélyezi a pittyenést</string>
     <string name="pref_disable_bootanimation_title">Gyorsabb bootolás</string>
     <string name="pref_disable_bootanimation_summary">Kikapcsolja a boot animációt, így felgyorsítva az indítást</string>
     <string name="pref_ultra_brightness_title">Extra fényerő</string>

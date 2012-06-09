@@ -72,6 +72,7 @@ public class PopfanSettings extends PreferenceFragment
 
     private static final String BACK_BUTTON_ENDS_CALL_PROP = "pref_back_button_ends_call";
     private static final String MENU_BUTTON_ANSWERS_CALL_PROP = "pref_menu_button_answers_call";
+    private static final String KEY_VOLUME_ADJUST_SOUNDS_PROP = "pref_volume_adjust_sounds";
 
     private static final String DISABLE_BOOTANIMATION_PROP = "pref_disable_bootanimation";
     private static final String DISABLE_BOOTANIMATION_PERSIST_PROP = "persist.sys.nobootanimation";
@@ -88,6 +89,7 @@ public class PopfanSettings extends PreferenceFragment
 
     private CheckBoxPreference mBackButtonEndsCall;
     private CheckBoxPreference mMenuButtonAnswersCall;
+    private CheckBoxPreference mVolumeAdjustSounds;
 
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mUltraBrightnessPref;
@@ -110,6 +112,8 @@ public class PopfanSettings extends PreferenceFragment
         
         mBackButtonEndsCall = (CheckBoxPreference) findPreference(BACK_BUTTON_ENDS_CALL_PROP);
         mMenuButtonAnswersCall = (CheckBoxPreference) findPreference(MENU_BUTTON_ANSWERS_CALL_PROP);
+        mVolumeAdjustSounds = (CheckBoxPreference) findPreference(KEY_VOLUME_ADJUST_SOUNDS_PROP);
+        mVolumeAdjustSounds.setPersistent(false);
 
         mDisableBootanimPref = (CheckBoxPreference) findPreference(DISABLE_BOOTANIMATION_PROP);
         mUltraBrightnessPref = (CheckBoxPreference) findPreference(ULTRA_BRIGHTNESS);
@@ -131,6 +135,7 @@ public class PopfanSettings extends PreferenceFragment
 
         updateBackButtonEndsCall();
         updateMenuButtonAnswersCall();
+        updateVolumeAdjustSound();
 
         updateDisableBootAnimation();
         updateUltraBrightness();
@@ -162,6 +167,11 @@ public class PopfanSettings extends PreferenceFragment
     private void updateMenuButtonAnswersCall() {
         mMenuButtonAnswersCall.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.MENU_BUTTON_ANSWERS_CALL, 0) == 1);
             if (DEBUG) Log.i(TAG, UPD + "MenuButtonAnswersCall");
+    }
+
+    private void updateVolumeAdjustSound() {
+        mVolumeAdjustSounds.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.VOLUME_ADJUST_SOUNDS_ENABLED, 1) != 0);
+            if (DEBUG) Log.i(TAG, UPD + "VolumeAdjustSound");
     }
 
     private void updateDisableBootAnimation() {
@@ -203,6 +213,11 @@ public class PopfanSettings extends PreferenceFragment
     private void writeMenuButtonAnswersCall() {
         Settings.System.putInt(getActivity().getContentResolver(), Settings.System.MENU_BUTTON_ANSWERS_CALL, mMenuButtonAnswersCall.isChecked() ? 1 : 0);
             if (DEBUG) Log.i(TAG, WRT + "MenuButtonAnswersCall");
+    }
+
+    private void writeVolumeAdjustSound() {
+        Settings.System.putInt(getActivity().getContentResolver(), Settings.System.VOLUME_ADJUST_SOUNDS_ENABLED, mVolumeAdjustSounds.isChecked() ? 1 : 0);
+            if (DEBUG) Log.i(TAG, WRT + "VolumeAdjustSound");
     }
 
     private void writeDisableBootAnimation() {
@@ -258,6 +273,8 @@ public class PopfanSettings extends PreferenceFragment
             writeBackButtonEndsCall();
         } else if (preference == mMenuButtonAnswersCall) {
             writeMenuButtonAnswersCall();
+        } else if (preference == mVolumeAdjustSounds) {
+            writeVolumeAdjustSound();
         } else if (preference == mDisableBootanimPref) {
             writeDisableBootAnimation();
         } else if (preference == mUltraBrightnessPref) {
