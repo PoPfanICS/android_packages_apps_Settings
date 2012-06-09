@@ -69,6 +69,7 @@ public class PopfanSettings extends PreferenceFragment
 	private static final String CENTER_CLOCK_STATUS_BAR_PROP = "pref_center_clock_status_bar";
 
     private static final String BACK_BUTTON_ENDS_CALL_PROP = "pref_back_button_ends_call";
+    private static final String MENU_BUTTON_ANSWERS_CALL_PROP = "pref_menu_button_answers_call";
 
     private static final String DISABLE_BOOTANIMATION_PROP = "pref_disable_bootanimation";
     private static final String DISABLE_BOOTANIMATION_PERSIST_PROP = "persist.sys.nobootanimation";
@@ -79,6 +80,7 @@ public class PopfanSettings extends PreferenceFragment
 	private CheckBoxPreference mCenterClockStatusBar;
 
     private CheckBoxPreference mBackButtonEndsCall;
+    private CheckBoxPreference mMenuButtonAnswersCall;
 
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mUltraBrightnessPref;
@@ -93,6 +95,7 @@ public class PopfanSettings extends PreferenceFragment
         mCenterClockStatusBar = (CheckBoxPreference) findPreference(CENTER_CLOCK_STATUS_BAR_PROP);
         
         mBackButtonEndsCall = (CheckBoxPreference) findPreference(BACK_BUTTON_ENDS_CALL_PROP);
+        mMenuButtonAnswersCall = (CheckBoxPreference) findPreference(MENU_BUTTON_ANSWERS_CALL_PROP);
 
         mDisableBootanimPref = (CheckBoxPreference) findPreference(DISABLE_BOOTANIMATION_PROP);
         mUltraBrightnessPref = (CheckBoxPreference) findPreference(ULTRA_BRIGHTNESS);
@@ -110,6 +113,7 @@ public class PopfanSettings extends PreferenceFragment
 		updateCenterClockStatusBar();
 
         updateBackButtonEndsCall();
+        updateMenuButtonAnswersCall();
 
         updateDisableBootAnimation();
         updateUltraBrightness();
@@ -125,6 +129,11 @@ public class PopfanSettings extends PreferenceFragment
     private void updateBackButtonEndsCall() {
         mBackButtonEndsCall.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.BACK_BUTTON_ENDS_CALL, 0) == 1);
             if (DEBUG) Log.i(TAG, UPD + "BackButtonEndsCall");
+    }
+
+    private void updateMenuButtonAnswersCall() {
+        mMenuButtonAnswersCall.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.MENU_BUTTON_ANSWERS_CALL, 0) == 1);
+            if (DEBUG) Log.i(TAG, UPD + "MenuButtonAnswersCall");
     }
 
     private void updateDisableBootAnimation() {
@@ -154,6 +163,11 @@ public class PopfanSettings extends PreferenceFragment
             if (DEBUG) Log.i(TAG, WRT + "BackButtonEndsCall");
     }
 
+    private void writeMenuButtonAnswersCall() {
+        Settings.System.putInt(getActivity().getContentResolver(), Settings.System.MENU_BUTTON_ANSWERS_CALL, mMenuButtonAnswersCall.isChecked() ? 1 : 0);
+            if (DEBUG) Log.i(TAG, WRT + "MenuButtonAnswersCall");
+    }
+
     private void writeDisableBootAnimation() {
         SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP, mDisableBootanimPref.isChecked() ? "1" : "0");
         if (DEBUG) Log.i(TAG, WRT + "BootAnimation");
@@ -175,10 +189,12 @@ public class PopfanSettings extends PreferenceFragment
             return false;
         }
 
-        if (preference == mBackButtonEndsCall) {
-            writeBackButtonEndsCall();
-        } else if (preference == mCenterClockStatusBar) {
+        if (preference == mCenterClockStatusBar) {
             writeCenterClockStatusBar();
+        } else if (preference == mBackButtonEndsCall) {
+            writeBackButtonEndsCall();
+        } else if (preference == mMenuButtonAnswersCall) {
+            writeMenuButtonAnswersCall();
         } else if (preference == mDisableBootanimPref) {
             writeDisableBootAnimation();
         } else if (preference == mUltraBrightnessPref) {

@@ -4473,11 +4473,13 @@ found in the list of installed apps.</string>
 
     <!-- PoPfan -->
     <string name="popfan_settings_title">PoPfan Settings</string>
-    
+
     <string name="pref_center_clock_status_bar_title">Center clock</string>
     <string name="pref_center_clock_status_bar_summary">On the status bar aligns the clock to center (Wait for restarting SystemUI)</string>
     <string name="pref_back_button_ends_call_title">Back button ends call</string>
     <string name="pref_back_button_ends_call_summary">When pressed the Back button, the actual call ends</string>
+    <string name="pref_menu_button_answers_call_title">Menu button answers call</string>
+    <string name="pref_menu_button_answers_call_summary">When pressed the Menu button when incoming call, the actual call answered</string>
     <string name="pref_disable_bootanimation_title">Disable boot animation</string>
     <string name="pref_disable_bootanimation_summary">Don\'t show the boot animation for faster boot</string>
     <string name="pref_ultra_brightness_title">Ultra brightness</string>

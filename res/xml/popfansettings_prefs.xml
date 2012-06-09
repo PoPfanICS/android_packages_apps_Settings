@@ -31,6 +31,12 @@
             android:defaultValue="true" />
 
         <CheckBoxPreference
+            android:key="pref_menu_button_answers_call"
+            android:title="@string/pref_menu_button_answers_call_title"
+            android:summary="@string/pref_menu_button_answers_call_summary"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
             android:key="pref_disable_bootanimation"
             android:title="@string/pref_disable_bootanimation_title"
             android:summary="@string/pref_disable_bootanimation_summary"
