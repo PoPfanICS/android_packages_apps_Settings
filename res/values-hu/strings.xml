@@ -2231,4 +2231,14 @@
     <string name="se_launcher_settings_title">Xperia kezdőképernyő</string>
 
     <string name="builder_info_title">Készítő</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Szín választás</string>
+    <string name="press_color_to_apply">Nyomj a színre az alkalmazáshoz!</string>
+    <string name="arrow_right">-</string>
+    <string name="arrow_down">|</string>
+    <string name="hex">Hexa:</string>
+    <string name="hex_hint">#FF000000</string>
+    <string name="set">Mehet</string>
+    <string name="ics_color">ICS</string>
 </resources>

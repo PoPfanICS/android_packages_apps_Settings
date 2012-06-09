@@ -4487,4 +4487,14 @@ found in the list of installed apps.</string>
     
     <string name="builder_info_title">Builder</string>
     <string name="builder_info_summary">PoPfan-Team</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on Color to apply</string>
+    <string name="arrow_right">-</string>
+    <string name="arrow_down">|</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#FF000000</string>
+    <string name="set">Set</string>
+    <string name="ics_color">ICS</string>
 </resources>
