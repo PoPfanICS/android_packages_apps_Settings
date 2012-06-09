@@ -4476,6 +4476,8 @@ found in the list of installed apps.</string>
 
     <string name="pref_center_clock_status_bar_title">Center clock</string>
     <string name="pref_center_clock_status_bar_summary">On the status bar aligns the clock to center (Wait for restarting SystemUI)</string>
+    <string name="pref_clock_color_title">Clock color</string>
+    <string name="pref_clock_color_reset_title">Reset color</string>
     <string name="pref_back_button_ends_call_title">Back button ends call</string>
     <string name="pref_back_button_ends_call_summary">When pressed the Back button, the actual call ends</string>
     <string name="pref_menu_button_answers_call_title">Menu button answers call</string>

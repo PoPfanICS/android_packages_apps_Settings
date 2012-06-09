@@ -2208,6 +2208,8 @@
 
     <string name="pref_center_clock_status_bar_title">Óra középen</string>
     <string name="pref_center_clock_status_bar_summary">A státuszbáron középre igazítja az órát (Újraindítja a SystemUI-t)</string>
+    <string name="pref_clock_color_title">Óra színe</string>
+    <string name="pref_clock_color_reset_title">Szín alapértékre</string>
     <string name="pref_back_button_ends_call_title">Hívás befejezés</string>
     <string name="pref_back_button_ends_call_summary">Vissza gomb megnyomása befejezi az aktuális hívást</string>
     <string name="pref_menu_button_answers_call_title">Hívás fogadás</string>

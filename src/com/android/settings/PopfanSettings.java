@@ -67,6 +67,8 @@ public class PopfanSettings extends PreferenceFragment
     private static final boolean DEBUG = true;
 
 	private static final String CENTER_CLOCK_STATUS_BAR_PROP = "pref_center_clock_status_bar";
+    private static final String CLOCK_COLOR_PICKER_PROP = "pref_clock_color";
+    private static final String CLOCK_COLOR_RESET = "pref_clock_color_reset";
 
     private static final String BACK_BUTTON_ENDS_CALL_PROP = "pref_back_button_ends_call";
     private static final String MENU_BUTTON_ANSWERS_CALL_PROP = "pref_menu_button_answers_call";
@@ -81,6 +83,8 @@ public class PopfanSettings extends PreferenceFragment
     private static final String CUSTOM_CARRIER_LABEL_RESET = "pref_custom_carrier_label_reset";
 
 	private CheckBoxPreference mCenterClockStatusBar;
+    private Preference mClockColorReset;
+    private ColorPickerPreference mClockColorPicker;
 
     private CheckBoxPreference mBackButtonEndsCall;
     private CheckBoxPreference mMenuButtonAnswersCall;
@@ -100,6 +104,9 @@ public class PopfanSettings extends PreferenceFragment
 		addPreferencesFromResource(R.xml.popfansettings_prefs);
 
         mCenterClockStatusBar = (CheckBoxPreference) findPreference(CENTER_CLOCK_STATUS_BAR_PROP);
+        mClockColorReset = findPreference(CLOCK_COLOR_RESET);
+        mClockColorPicker = (ColorPickerPreference) findPreference(CLOCK_COLOR_PICKER_PROP);
+        mClockColorPicker.setOnPreferenceChangeListener(this);
         
         mBackButtonEndsCall = (CheckBoxPreference) findPreference(BACK_BUTTON_ENDS_CALL_PROP);
         mMenuButtonAnswersCall = (CheckBoxPreference) findPreference(MENU_BUTTON_ANSWERS_CALL_PROP);
@@ -133,6 +140,10 @@ public class PopfanSettings extends PreferenceFragment
 
 
     /* Reset functions */
+    private void resetClockColor() {
+         Settings.System.putInt(getActivity().getContentResolver(), Settings.System.STATUSBAR_CLOCK_COLOR, -1);
+    }
+
     private void resetCustomCarrierLabel() {
          Settings.System.putInt(getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL, null);
     }
@@ -241,6 +252,8 @@ public class PopfanSettings extends PreferenceFragment
 
         if (preference == mCenterClockStatusBar) {
             writeCenterClockStatusBar();
+        } else if (preference == mClockColorReset) {
+            resetClockColor();
         } else if (preference == mBackButtonEndsCall) {
             writeBackButtonEndsCall();
         } else if (preference == mMenuButtonAnswersCall) {
@@ -261,7 +274,15 @@ public class PopfanSettings extends PreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        boolean handled = false;
+        if (preference == mColorPicker) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.STATUSBAR_CLOCK_COLOR, intHex);
+            if (DEBUG) Log.i(TAG, UPD + "Clock Color to this hex value: #" + intHex + "");
+        }
+
+        return false;
     }
 
     private void dismissDialog() {
