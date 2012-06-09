@@ -84,6 +84,7 @@ public class PopfanSettings extends PreferenceFragment
     private static final String ULTRABRIGHTNESS_PERSIST_PROP = "persist.sys.ultrabrightness";
     private static final String ADB_NOTIFY_PROP = "pref_adb_notify";
 
+    private static final String LOCKSCREEN_TEXT_COLOR_PROP = "pref_lockscreen_text_color";
     private static final String CUSTOM_CARRIER_LABEL_PROP = "pref_custom_carrier_label";
     private static final String CUSTOM_CARRIER_LABEL_RESET = "pref_custom_carrier_label_reset";
     private static final String LOCKSCREEN_BATTERY_PROP = "pref_lockscreen_battery";
@@ -103,6 +104,7 @@ public class PopfanSettings extends PreferenceFragment
     private CheckBoxPreference mUltraBrightnessPref;
     private CheckBoxPreference mAdbNotifyPref;
 
+    private ColorPickerPreference mLockscreenTextColor;
     private Preference mCustomCarrierLabel;
     private Preference mCustomCarrierLabelReset;
     private CheckBoxPreference mLockscreenBattery;
@@ -132,6 +134,8 @@ public class PopfanSettings extends PreferenceFragment
         mUltraBrightnessPref = (CheckBoxPreference) findPreference(ULTRA_BRIGHTNESS);
         mAdbNotifyPref = (CheckBoxPreference) findPreference(ADB_NOTIFY_PROP);
 
+        mLockscreenTextColor = (ColorPickerPreference) findPreference(LOCKSCREEN_TEXT_COLOR_PROP);
+        mLockscreenTextColor.setOnPreferenceChangeListener(this);
         mCustomCarrierLabel = findPreference(CUSTOM_CARRIER_LABEL_PROP);
         mCustomCarrierLabelReset = findPreference(CUSTOM_CARRIER_LABEL_RESET);
         mLockscreenBattery = (CheckBoxPreference) findPreference(LOCKSCREEN_BATTERY_PROP);
@@ -362,12 +366,18 @@ public class PopfanSettings extends PreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mColorPicker) {
+        if (preference == mClockColorPicker) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.STATUSBAR_CLOCK_COLOR, intHex);
             if (DEBUG) Log.i(TAG, UPD + "Clock Color to this hex value: #" + intHex + "");
+        } else if (preference == mLockscreenTextColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.LOCKSCREEN_CUSTOM_TEXT_COLOR, intHex);
+            if (DEBUG) Log.i(TAG, UPD + "Lockscreen Text Color to this hex value: #" + intHex + "");
         }
 
         return false;
