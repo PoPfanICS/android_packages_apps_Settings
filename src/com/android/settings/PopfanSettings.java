@@ -66,7 +66,7 @@ public class PopfanSettings extends PreferenceFragment
 
     private static final boolean DEBUG = true;
 
-	private static final String CENTER_CLOCK_STATUS_BAR_PROP = "pref_center_clock_status_bar";
+    private static final String CENTER_CLOCK_STATUS_BAR_PROP = "pref_center_clock_status_bar";
     private static final String CLOCK_COLOR_PICKER_PROP = "pref_clock_color";
     private static final String CLOCK_COLOR_RESET = "pref_clock_color_reset";
 
@@ -89,7 +89,7 @@ public class PopfanSettings extends PreferenceFragment
     private static final String CUSTOM_CARRIER_LABEL_RESET = "pref_custom_carrier_label_reset";
     private static final String LOCKSCREEN_BATTERY_PROP = "pref_lockscreen_battery";
 
-	private CheckBoxPreference mCenterClockStatusBar;
+    private CheckBoxPreference mCenterClockStatusBar;
     private Preference mClockColorReset;
     private ColorPickerPreference mClockColorPicker;
 
@@ -99,7 +99,7 @@ public class PopfanSettings extends PreferenceFragment
 
     private CheckBoxPreference mDisableAirplanePref;
     private CheckBoxPreference mDisableScreenshotPref;
-    
+
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mUltraBrightnessPref;
     private CheckBoxPreference mAdbNotifyPref;
@@ -111,23 +111,27 @@ public class PopfanSettings extends PreferenceFragment
 
     private String mCustomLabelText = null;
 
+    private boolean mOkClicked;
+    private Dialog mOkDialog;
+    private String mCurrentDialog;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-		
-		addPreferencesFromResource(R.xml.popfansettings_prefs);
+
+        addPreferencesFromResource(R.xml.popfansettings_prefs);
 
         mCenterClockStatusBar = (CheckBoxPreference) findPreference(CENTER_CLOCK_STATUS_BAR_PROP);
         mClockColorReset = findPreference(CLOCK_COLOR_RESET);
         mClockColorPicker = (ColorPickerPreference) findPreference(CLOCK_COLOR_PICKER_PROP);
         mClockColorPicker.setOnPreferenceChangeListener(this);
-        
+
         mBackButtonEndsCall = (CheckBoxPreference) findPreference(BACK_BUTTON_ENDS_CALL_PROP);
         mMenuButtonAnswersCall = (CheckBoxPreference) findPreference(MENU_BUTTON_ANSWERS_CALL_PROP);
         mVolumeAdjustSounds = (CheckBoxPreference) findPreference(KEY_VOLUME_ADJUST_SOUNDS_PROP);
         mVolumeAdjustSounds.setPersistent(false);
 
-        mDisableAirplanePref = (CheckBoxPreference) findPreference(DISABELE_AIRPLANE_PROP);
+        mDisableAirplanePref = (CheckBoxPreference) findPreference(DISABLE_AIRPLANE_PROP);
         mDisableScreenshotPref = (CheckBoxPreference) findPreference(DISABLE_SCREENSHOT_PROP);
 
         mDisableBootanimPref = (CheckBoxPreference) findPreference(DISABLE_BOOTANIMATION_PROP);
@@ -150,7 +154,7 @@ public class PopfanSettings extends PreferenceFragment
 
         final ContentResolver cr = getActivity().getContentResolver();
 
-		updateCenterClockStatusBar();
+        updateCenterClockStatusBar();
 
         updateBackButtonEndsCall();
         updateMenuButtonAnswersCall();
@@ -174,7 +178,7 @@ public class PopfanSettings extends PreferenceFragment
     }
 
     private void resetCustomCarrierLabel() {
-         Settings.System.putInt(getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL, null);
+         Settings.System.putString(getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL, null);
     }
 
     /* Update functions */
@@ -209,13 +213,13 @@ public class PopfanSettings extends PreferenceFragment
     }
 
     private void updateDisableBootAnimation() {
-        String disableBootanimation = SystemProperties.get(DISABLE_BOOTANIMATION_PERSIST_PROP, 0);
+        String disableBootanimation = SystemProperties.get(DISABLE_BOOTANIMATION_PERSIST_PROP, "0");
         mDisableBootanimPref.setChecked("1".equals(disableBootanimation));
             if (DEBUG) Log.i(TAG, UPD + "BootAnimation");
     }
 
     private void updateUltraBrightness() {
-        if (SystemProperties.getInt(ULTRABRIGHTNESS_PERSIST_PROP, 0) == 0)
+        if (SystemProperties.get(ULTRABRIGHTNESS_PERSIST_PROP, "0") == "0")
             mUltraBrightnessPref.setChecked(false);
         else
             mUltraBrightnessPref.setChecked(true);
@@ -229,9 +233,9 @@ public class PopfanSettings extends PreferenceFragment
     private void updateCustomCarrierLabel() {
         mCustomLabelText = Settings.System.getString(getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL);
         if (mCustomLabelText == null) {
-            mCustomLabel.setSummary(R.string.pref_lockscreen_text_notext);
+            mCustomCarrierLabel.setSummary(R.string.pref_lockscreen_text_notext);
         } else {
-            mCustomLabel.setSummary(mCustomLabelText);
+            mCustomCarrierLabel.setSummary(mCustomLabelText);
         }
         if (DEBUG) Log.i(TAG, UPD + "CustomCarrierLabel");
     }
@@ -243,11 +247,11 @@ public class PopfanSettings extends PreferenceFragment
 
 
     /* Write functions */
-	private void writeCenterClockStatusBar() {
+    private void writeCenterClockStatusBar() {
         Settings.System.putInt(getActivity().getContentResolver(), Settings.System.CENTER_CLOCK_STATUS_BAR, mCenterClockStatusBar.isChecked() ? 1 : 0);
-        	if (DEBUG) Log.i(TAG, WRT + "CenterClock");
+            if (DEBUG) Log.i(TAG, WRT + "CenterClock");
         Helpers.restartSystemUI();
-        	if (DEBUG) Log.i(TAG, "Restarting SystemUI");
+            if (DEBUG) Log.i(TAG, "Restarting SystemUI");
     }
 
     private void writeBackButtonEndsCall() {
@@ -268,7 +272,7 @@ public class PopfanSettings extends PreferenceFragment
     private void writeDisableAirplane() {
         Settings.System.putInt(getActivity().getContentResolver(), Settings.System.POWER_DIALOG_SHOW_AIRPLANE, mDisableAirplanePref.isChecked() ? 1 : 0);
             if (DEBUG) Log.i(TAG, WRT + "Airplane");
-    }    
+    }
 
     private void writeDisableScreenshot() {
         Settings.System.putInt(getActivity().getContentResolver(), Settings.System.POWER_DIALOG_SHOW_SCREENSHOT, mDisableScreenshotPref.isChecked() ? 1 : 0);
@@ -276,12 +280,12 @@ public class PopfanSettings extends PreferenceFragment
     }
 
     private void writeDisableBootAnimation() {
-        SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP, mDisableBootanimPref.isChecked() ? 1 : 0);
+        SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP, mDisableBootanimPref.isChecked() ? "1" : "0");
         if (DEBUG) Log.i(TAG, WRT + "BootAnimation");
     }
 
     private void writeUltraBrightness() {
-        SystemProperties.set(ULTRABRIGHTNESS_PERSIST_PROP, mUltraBrightnessPref.isChecked() ? 1 : 0);
+        SystemProperties.set(ULTRABRIGHTNESS_PERSIST_PROP, mUltraBrightnessPref.isChecked() ? "1" : "0");
         String WOL = (mUltraBrightnessPref.isChecked() ? "i2c_pwm" : "i2c_pwm_als");
         writeOneLine("/sys/devices/platform/i2c-adapter/i2c-0/0-0036/mode", WOL);
         writeOneLine("/data/popfan/brightnessmode", WOL);
