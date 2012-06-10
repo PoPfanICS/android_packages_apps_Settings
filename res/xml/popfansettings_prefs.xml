@@ -75,6 +75,8 @@
             android:key="pref_disable_screenshot"
             android:title="@string/pref_disable_screenshot_title" />
 
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="system"
         android:title="@string/cat_system">
