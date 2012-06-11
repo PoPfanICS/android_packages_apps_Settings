@@ -37,6 +37,11 @@
             android:key="pref_clock_color_reset"
             android:title="@string/pref_clock_color_reset_title" />
 
+        <CheckBoxPreference
+            android:key="pref_disable_alarm"
+            android:title="@string/pref_disable_alarm_title"
+            android:summary="@string/pref_disable_alarm_summary" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

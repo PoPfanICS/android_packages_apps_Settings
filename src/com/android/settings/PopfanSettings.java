@@ -69,6 +69,7 @@ public class PopfanSettings extends PreferenceFragment
     private static final String CENTER_CLOCK_STATUS_BAR_PROP = "pref_center_clock_status_bar";
     private static final String CLOCK_COLOR_PICKER_PROP = "pref_clock_color";
     private static final String CLOCK_COLOR_RESET = "pref_clock_color_reset";
+    private static final String DISABLE_ALARM_PROP = "pref_disable_alarm";
 
     private static final String BACK_BUTTON_ENDS_CALL_PROP = "pref_back_button_ends_call";
     private static final String MENU_BUTTON_ANSWERS_CALL_PROP = "pref_menu_button_answers_call";
@@ -94,6 +95,7 @@ public class PopfanSettings extends PreferenceFragment
     private CheckBoxPreference mCenterClockStatusBar;
     private Preference mClockColorReset;
     private ColorPickerPreference mClockColorPicker;
+    private CheckBoxPreference mDisableAlarmPref;
 
     private CheckBoxPreference mBackButtonEndsCall;
     private CheckBoxPreference mMenuButtonAnswersCall;
@@ -129,6 +131,7 @@ public class PopfanSettings extends PreferenceFragment
         mClockColorReset = findPreference(CLOCK_COLOR_RESET);
         mClockColorPicker = (ColorPickerPreference) findPreference(CLOCK_COLOR_PICKER_PROP);
         mClockColorPicker.setOnPreferenceChangeListener(this);
+        mDisableAlarmPref = (CheckBoxPreference) findPreference(DISABLE_ALARM_PROP);
 
         mBackButtonEndsCall = (CheckBoxPreference) findPreference(BACK_BUTTON_ENDS_CALL_PROP);
         mMenuButtonAnswersCall = (CheckBoxPreference) findPreference(MENU_BUTTON_ANSWERS_CALL_PROP);
@@ -161,6 +164,7 @@ public class PopfanSettings extends PreferenceFragment
         final ContentResolver cr = getActivity().getContentResolver();
 
         updateCenterClockStatusBar();
+        updateDisableAlarm();
 
         updateBackButtonEndsCall();
         updateMenuButtonAnswersCall();
@@ -194,6 +198,11 @@ public class PopfanSettings extends PreferenceFragment
     private void updateCenterClockStatusBar() {
         mCenterClockStatusBar.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.CENTER_CLOCK_STATUS_BAR, 0) == 1);
             if (DEBUG) Log.i(TAG, UPD + "CenterClock");
+    }
+
+    private void updateDisableAlarm() {
+        mDisableAlarmPref.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.STATUSBAR_SHOW_ALARM, 1) == 1);
+            if (DEBUG) Log.i(TAG, UPD + "Alarm");
     }
 
     private void updateBackButtonEndsCall() {
@@ -271,6 +280,11 @@ public class PopfanSettings extends PreferenceFragment
             if (DEBUG) Log.i(TAG, WRT + "CenterClock");
         Helpers.restartSystemUI();
             if (DEBUG) Log.i(TAG, "Restarting SystemUI");
+    }
+
+    private void writeDisableAlarm() {
+        Settings.System.putInt(getActivity().getContentResolver(), Settings.System.STATUSBAR_SHOW_ALARM, mDisableAlarmPref.isChecked() ? 1 : 0);
+            if (DEBUG) Log.i(TAG, WRT + "Alarm");
     }
 
     private void writeBackButtonEndsCall() {
@@ -369,16 +383,22 @@ public class PopfanSettings extends PreferenceFragment
             writeCenterClockStatusBar();
         } else if (preference == mClockColorReset) {
             resetClockColor();
+        } else if (preference == mDisableAlarmPref) {
+            writeDisableAlarm();
         } else if (preference == mBackButtonEndsCall) {
             writeBackButtonEndsCall();
         } else if (preference == mMenuButtonAnswersCall) {
             writeMenuButtonAnswersCall();
         } else if (preference == mVolumeAdjustSounds) {
             writeVolumeAdjustSound();
-        } else if (preference == mDisableAirplanePref) {
-            writeDisableAirplane();
+        } else if (preference == mDisableRebootPref) {
+            writeDisableReboot();
+        } else if (preference == mDisableProfilePref) {
+            writeDisableProfile();
         } else if (preference == mDisableScreenshotPref) {
             writeDisableScreenshot();
+        } else if (preference == mDisableAirplanePref) {
+            writeDisableAirplane();
         } else if (preference == mDisableBootanimPref) {
             writeDisableBootAnimation();
         } else if (preference == mUltraBrightnessPref) {
