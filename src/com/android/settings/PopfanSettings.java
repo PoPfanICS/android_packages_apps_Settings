@@ -179,6 +179,7 @@ public class PopfanSettings extends PreferenceFragment
 
     private void resetCustomCarrierLabel() {
          Settings.System.putString(getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL, null);
+             updateCustomCarrierLabel();
     }
 
     /* Update functions */
