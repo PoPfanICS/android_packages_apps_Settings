@@ -4462,12 +4462,14 @@ found in the list of installed apps.</string>
     <string name="pref_volume_adjust_sounds_enable_summary">Play sound when adjusting volume with hard keys</string>
     <string name="pref_disable_airplane_title">Show Airplane Mode</string>
     <string name="pref_disable_screenshot_title">Show Screenshot</string>
+    <string name="pref_disable_profile_title">Show Profiles</string>
+    <string name="pref_disable_rebgoot_title">Show Reboot</string>
     <string name="pref_disable_bootanimation_title">Disable boot animation</string>
     <string name="pref_disable_bootanimation_summary">Don\'t show the boot animation for faster boot</string>
     <string name="pref_ultra_brightness_title">Ultra brightness</string>
     <string name="pref_ultra_brightness_summary">Increases the brightness level (may increase battery consumption)</string>
-    <string name="adb_notify_title">Enable USB debugging icon</string>
-    <string name="adb_notify_summary">If enable this option on the status bar shows the ADB icon when the USB is plugged</string>
+    <string name="pref_adb_notify_title">Enable USB debugging icon</string>
+    <string name="pref_adb_notify_summary">If enable this option on the status bar shows the ADB icon when the USB is plugged</string>
     <string name="pref_lockscreen_text_color_title">Lockscreen text color</string>
     <string name="pref_lockscreen_text_title">Custom Carrier Label</string>
     <string name="pref_lockscreen_text_head">Custom Carrier Label</string>

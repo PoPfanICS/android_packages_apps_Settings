@@ -2207,12 +2207,14 @@
     <string name="pref_volume_adjust_sounds_enable_summary">Hangerő gombokkal történő váltáskor engedélyezi a pittyenést</string>
     <string name="pref_disable_airplane_title">Repülőgép üzemmód mutatása</string>
     <string name="pref_disable_screenshot_title">Képernyőmentés mutatása</string>
+    <string name="pref_disable_profile_title">Profilok mutatása</string>
+    <string name="pref_disable_reboot_title">Újraindítás mutatása</string>
     <string name="pref_disable_bootanimation_title">Gyorsabb bootolás</string>
     <string name="pref_disable_bootanimation_summary">Kikapcsolja a boot animációt, így felgyorsítva az indítást</string>
     <string name="pref_ultra_brightness_title">Extra fényerő</string>
     <string name="pref_ultra_brightness_summary">Magasabb fényerőt biztosít (Nagyobb akkuhasználat)</string>
-    <string name="adb_notify_title">USB Hibakereső ikon</string>
-    <string name="adb_notify_summary">Csatlakoztatott USB esetén megjelenik az ADB ikonja a státuszbáron</string>
+    <string name="pref_adb_notify_title">USB Hibakereső ikon</string>
+    <string name="pref_adb_notify_summary">Csatlakoztatott USB esetén megjelenik az ADB ikonja a státuszbáron</string>
     <string name="pref_lockscreen_text_color_title">Zárképernyő szöveg színe</string>
     <string name="pref_lockscreen_text_title">Zárképernyő szöveg</string>
     <string name="pref_lockscreen_text_head">Egyedi zárképernyő szöveg</string>

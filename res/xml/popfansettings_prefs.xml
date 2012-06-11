@@ -68,12 +68,20 @@
         android:title="@string/cat_power_dialog">
 
         <CheckBoxPreference
-            android:key="pref_disable_airplane"
-            android:title="@string/pref_disable_airplane_title" />
+            android:key="pref_disable_reboot"
+            android:title="@string/pref_disable_reboot_title" />
+
+        <CheckBoxPreference
+            android:key="pref_disable_profile"
+            android:title="@string/pref_disable_profile_title" />
 
         <CheckBoxPreference
             android:key="pref_disable_screenshot"
             android:title="@string/pref_disable_screenshot_title" />
+
+        <CheckBoxPreference
+            android:key="pref_disable_airplane"
+            android:title="@string/pref_disable_airplane_title" />
 
     </PreferenceCategory>
 
@@ -95,8 +103,8 @@
 
         <CheckBoxPreference
             android:key="pref_adb_notify"
-            android:title="@string/adb_notify_title"
-            android:summary="@string/adb_notify_summary"
+            android:title="@string/pref_adb_notify_title"
+            android:summary="@string/pref_adb_notify_summary"
             android:defaultValue="true" />
 
     </PreferenceCategory>
