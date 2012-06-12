@@ -1736,6 +1736,10 @@ ice shows the slider widgets before the unlock option [CHAR LIMIT=28]-->
     <string name="status_bar_signal_text_show_text">Signalstärke (nur Wert)</string>
     <string name="status_bar_signal_text_hidden">Versteckt</string>
 
+    <!-- Status bar notification count -->
+    <string name="status_bar_notif_count_title">Benachrichtigungs-Zähler</string>
+    <string name="status_bar_notif_count_summary">Anzahl der anstehenden Benachrichtigungen in der Statusleiste anzeigen</string>
+
     <!-- Lock screen #CM -->
     <string name="lock_screen_title">Bildschirmsperre</string>
 
@@ -1931,11 +1935,16 @@ ice shows the slider widgets before the unlock option [CHAR LIMIT=28]-->
     <!-- Setting checkbox title for Whether debugging should run over TCP/IP. -->
     <string name="adb_over_network">ADB über Netzwerk</string>
     <string name="adb_over_network_summary">TCP/IP Debugging über Netzwerkschnittstellen (WLAN, USB Netzwerke, \u2026) aktivieren. Diese Einstellung wird beim Neustart zurückgesetzt.</string>
+
     <!-- Warning for Adb over Network -->
     <string name="adb_over_network_warning">WARNUNG: Wenn ADB über Netzwerk eingeschaltet wird, ist dein Gerät anfällig für das Eindringen Fremder aus allen verbundenen Netzwerken - auch aus einem GSM-Datennetzwerk!\n\nNur nutzen, wenn du mit einem vertrauenswürdigen Netzwerk verbunden bist.\n\nMöchtest du diese Funktion wirklich einschalten?</string>
+
     <!-- Kill app long-press back  -->
     <string name="kill_app_longpress_back">App beenden</string>
     <string name="kill_app_longpress_back_summary">Gedrückt halten der Zurück-Taste beendet die Anwendung im Vordergrund.</string>
+
+    <!-- Hostname setting -->
+    <string name="device_hostname">Hostname des Geräts</string>
 
     <!-- About device screen, version of modification of Android. #CM -->
     <string name="mod_version">CyanogenMod-Version</string>
@@ -2108,6 +2117,11 @@ ice shows the slider widgets before the unlock option [CHAR LIMIT=28]-->
     <string name="start_time_title">Beginn</string>
     <string name="end_time_title">Ende</string>
 
+    <!-- Electron Beam -->
+    <string name="display_category_animation_options_title">Animationen</string>
+    <string name="display_electron_beam_animation_on_title">Einschalten animieren</string>
+    <string name="display_electron_beam_animation_off_title">Ausschalten animieren</string>
+
     <!-- Wakeup options -->
     <string name="display_category_wakeup_options_title">Aufwecken</string>
     <string name="pref_volume_wake_title">Aufwecken mit Lautstärketaste</string>
@@ -2193,4 +2207,7 @@ ice shows the slider widgets before the unlock option [CHAR LIMIT=28]-->
     <string name="link_volume_ringtones_toast">Überprüfe die Lautstärke von Klingelton und Benachrichtigungen.</string>
     <string name="link_volume_mutes">Klingelton und Benachrichtigungen gemeinsam stummschalten</string>
 
+    <!-- Advanced tethering settings -->
+    <string name="tethering_advanced_text">Erweitert</string>
+    <string name="tethering_lease_time_text">DHCP-Lease-Gültigkeit</string>
 </resources>
