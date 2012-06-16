@@ -60,6 +60,13 @@
     <!-- INTERFACE -->
     <header android:title="@string/header_category_interface" />
 
+    <!-- PoPfan Settings -->
+    <header
+        android:id="@+id/popfan_settings"
+        android:fragment="com.android.settings.PopfanSettings"
+        android:title="@string/popfan_settings_title"
+        android:icon="@drawable/ic_settings_popfan" />
+
     <!-- Launcher -->
     <header
         android:id="@+id/launcher_settings"
@@ -69,11 +76,12 @@
     <header
         android:id="@+id/se_launcher_settings"
         android:title="@string/se_launcher_settings_title"
-        android:icon="@drawable/ic_settings_selauncher" />
+        android:icon="@drawable/ic_settings_selauncher">
         <intent
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.sonyericsson.home"
             android:targetClass="com.sonyericsson.home.PreferencesMainActivity" />
+    </header>
 
     <!-- Lock screen -->
     <header
@@ -81,13 +89,6 @@
         android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
         android:title="@string/lock_screen_title"
         android:icon="@drawable/ic_settings_lockscreen" />
-
-    <!-- PoPfan Settings -->
-    <header
-        android:id="@+id/popfan_settings"
-        android:fragment="com.android.settings.PopfanSettings"
-        android:title="@string/popfan_settings_title"
-        android:icon="@drawable/ic_settings_popfan" />
 
     <!-- Themes -->
     <header
