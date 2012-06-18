@@ -911,13 +911,6 @@
     <!-- Advanced tethering settings -->
     <string name="tethering_advanced_text">Speciális</string>
     <string name="tethering_lease_time_text">DHCP bérleti idő</string>
-    <string name="dhcp_lease_30mn">30 perc</string>
-    <string name="dhcp_lease_1h">1 óra (alapértelmezett)</string>
-    <string name="dhcp_lease_2h">2 óra</string>
-    <string name="dhcp_lease_4h">4 óra</string>
-    <string name="dhcp_lease_6h">6 óra</string>
-    <string name="dhcp_lease_12h">12 óra</string>
-    <string name="dhcp_lease_24h">24 óra</string>
 
     <string name="network_settings_title" msgid="7967552516440151852">"Mobilhálózatok"</string>
     <string name="location_title" msgid="1029961368397484576">"Saját pozíció"</string>
@@ -2207,8 +2200,9 @@
     <!-- About phone screen, Free memory info -->
     <string name="mem_info">Memória</string>
     <!-- About device screen, version of modification of Android. -->
-    <string name="mod_version">CyanogenMod verzió</string>
+    <string name="mod_version">Mod neve</string>
     <string name="mod_version_default">Unknown</string>
+    <string name="mod_ver">Mod verzió</string>
     <!-- About device screen, build date of ROM. -->
     <string name="build_date">Build dátuma</string>
     <string name="build_date_default">2012-01-01-0000</string>
