@@ -79,6 +79,7 @@ public class PopfanSettings extends PreferenceFragment
     private static final String DISABLE_PROFILE_PROP = "pref_disable_profile";
     private static final String DISABLE_SCREENSHOT_PROP = "pref_disable_screenshot";
     private static final String DISABLE_AIRPLANE_PROP = "pref_disable_airplane";
+    private static final String DISABLE_RINGER_PROP = "pref_disable_ringer";
 
     private static final String DISABLE_BOOTANIMATION_PROP = "pref_disable_bootanimation";
     private static final String DISABLE_BOOTANIMATION_PERSIST_PROP = "persist.sys.nobootanimation";
@@ -105,6 +106,7 @@ public class PopfanSettings extends PreferenceFragment
     private CheckBoxPreference mDisableProfilePref;
     private CheckBoxPreference mDisableScreenshotPref;
     private CheckBoxPreference mDisableAirplanePref;
+    private CheckBoxPreference mDisableRingerPref;
 
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mUltraBrightnessPref;
@@ -142,6 +144,7 @@ public class PopfanSettings extends PreferenceFragment
         mDisableProfilePref = (CheckBoxPreference) findPreference(DISABLE_PROFILE_PROP);
         mDisableScreenshotPref = (CheckBoxPreference) findPreference(DISABLE_SCREENSHOT_PROP);
         mDisableAirplanePref = (CheckBoxPreference) findPreference(DISABLE_AIRPLANE_PROP);
+        mDisableRingerPref = (CheckBoxPreference) findPreference(DISABLE_RINGER_PROP);
 
         mDisableBootanimPref = (CheckBoxPreference) findPreference(DISABLE_BOOTANIMATION_PROP);
         mUltraBrightnessPref = (CheckBoxPreference) findPreference(ULTRA_BRIGHTNESS);
@@ -174,6 +177,7 @@ public class PopfanSettings extends PreferenceFragment
         updateDisableProfile();
         updateDisableScreenshot();
         updateDisableAirplane();
+        updateDisableRinger();
 
         updateDisableBootAnimation();
         updateUltraBrightness();
@@ -238,6 +242,11 @@ public class PopfanSettings extends PreferenceFragment
     private void updateDisableAirplane() {
         mDisableAirplanePref.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.POWER_DIALOG_SHOW_AIRPLANE, 1) == 1);
             if (DEBUG) Log.i(TAG, UPD + "Airplane");
+    }
+
+    private void updateDisableRinger() {
+        mDisableRingerPref.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.POWER_DIALOG_SHOW_RINGER, 1) == 1);
+            if (DEBUG) Log.i(TAG, UPD + "Ringer");
     }
 
     private void updateDisableBootAnimation() {
@@ -322,6 +331,11 @@ public class PopfanSettings extends PreferenceFragment
             if (DEBUG) Log.i(TAG, WRT + "Airplane");
     }
 
+    private void writeDisableRinger() {
+        Settings.System.putInt(getActivity().getContentResolver(), Settings.System.POWER_DIALOG_SHOW_RINGER, mDisableRingerPref.isChecked() ? 1 : 0);
+            if (DEBUG) Log.i(TAG, WRT + "Ringer");
+    }
+
     private void writeDisableBootAnimation() {
         SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP, mDisableBootanimPref.isChecked() ? "1" : "0");
         if (DEBUG) Log.i(TAG, WRT + "BootAnimation");
@@ -399,6 +413,8 @@ public class PopfanSettings extends PreferenceFragment
             writeDisableScreenshot();
         } else if (preference == mDisableAirplanePref) {
             writeDisableAirplane();
+        } else if (preference == mDisableRingerPref) {
+            writeDisableRinger();
         } else if (preference == mDisableBootanimPref) {
             writeDisableBootAnimation();
         } else if (preference == mUltraBrightnessPref) {

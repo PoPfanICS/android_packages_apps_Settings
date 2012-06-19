@@ -2232,6 +2232,7 @@
     <string name="pref_disable_screenshot_title">Képernyőmentés mutatása</string>
     <string name="pref_disable_profile_title">Profilok mutatása</string>
     <string name="pref_disable_reboot_title">Újraindítás mutatása</string>
+    <string name="pref_disable_ringer_title">Hangerő módok mutatása</string>
     <string name="pref_disable_bootanimation_title">Gyorsabb bootolás</string>
     <string name="pref_disable_bootanimation_summary">Kikapcsolja a boot animációt, így felgyorsítva az indítást</string>
     <string name="pref_disable_alarm_title">Ébresztő ikon mutatása</string>

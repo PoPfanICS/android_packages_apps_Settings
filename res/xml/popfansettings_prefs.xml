@@ -88,6 +88,10 @@
             android:key="pref_disable_airplane"
             android:title="@string/pref_disable_airplane_title" />
 
+        <CheckBoxPreference
+            android:key="pref_disable_ringer"
+            android:title="@string/pref_disable_ringer_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
