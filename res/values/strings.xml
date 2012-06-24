@@ -4476,7 +4476,7 @@ found in the list of installed apps.</string>
     <string name="pref_disable_screenshot_title">Show Screenshot</string>
     <string name="pref_disable_profile_title">Show Profiles</string>
     <string name="pref_disable_reboot_title">Show Reboot</string>
-    <string name="pref_disable_ringer_title">Show Ringer modes</string>
+    <string name="pref_disable_ringer_title">Show Reboot</string>
     <string name="pref_disable_bootanimation_title">Disable boot animation</string>
     <string name="pref_disable_bootanimation_summary">Don\'t show the boot animation for faster boot</string>
     <string name="pref_disable_alarm_title">Show alarm icon</string>
@@ -4501,9 +4501,17 @@ found in the list of installed apps.</string>
     <string name="cat_lockscreen">Lockscreen</string>
 
     <string name="se_launcher_settings_title">Xperia Launcher</string>
-    
+
     <string name="builder_info_title">Builder</string>
     <string name="builder_info_summary">PoPfan-Team</string>
+
+    <string name="partition_info_title">Partition info</string>
+    <string name="partition_info_system">/system</string>
+    <string name="partition_info_data">/data</string>
+    <string name="partition_info_cache">/cache</string>
+    <string name="partition_info_sdcard">/sdcard (FAT)</string>
+    <string name="partition_info_sdext">/sd-ext (EXT)</string>
+    <string name="partition_info_used_of">/</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>

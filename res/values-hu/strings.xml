@@ -2215,6 +2215,16 @@
     <string name="volbtn_music_controls_title">Zene vezérlése</string>
     <string name="volbtn_music_controls_summary">A lejátszott számok között lépkedhetsz, hosszan nyomvatartott hangerő gombokkal (kikapcsolt képernyőnél)</string>
 
+    <!-- Stylus Icon -->
+    <string name="stylus_icon_enabled_title">Ikon megjelenítése stylus használatakor</string>
+    <string name="stylus_icon_enabled_summary">Mutató mutatása rajzoláskor stylus használata esetén</string>
+    <!-- Hostname setting -->
+    <string name="device_hostname">Eszköz elérési neve</string>
+
+    <!-- Status bar notification count -->
+    <string name="status_bar_notif_count_title">Értesítések száma</string>
+    <string name="status_bar_notif_count_summary">Folyamatban lévő értesítések száma a stástusz soron</string>
+
     <!-- PoPfan -->
     <string name="popfan_settings_title">PoPfan beállítások</string>
 
@@ -2260,6 +2270,14 @@
 
     <string name="builder_info_title">Készítő</string>
 
+    <string name="partition_info_title">Partítció infó</string>
+    <string name="partition_info_system">/system</string>
+    <string name="partition_info_data">/data</string>
+    <string name="partition_info_cache">/cache</string>
+    <string name="partition_info_sdcard">/sdcard (FAT)</string>
+    <string name="partition_info_sdext">/sd-ext (EXT)</string>
+    <string name="partition_info_used_of">/</string>
+
     <!-- Color Picker -->
     <string name="dialog_color_picker">Szín választás</string>
     <string name="press_color_to_apply">Nyomj a színre az alkalmazáshoz!</string>
@@ -2270,13 +2288,4 @@
     <string name="set">Mehet</string>
     <string name="ics_color">ICS</string>
 
-    <!-- Stylus Icon -->
-    <string name="stylus_icon_enabled_title">Ikon megjelenítése stylus használatakor</string>
-    <string name="stylus_icon_enabled_summary">Mutató mutatása rajzoláskor stylus használata esetén</string>
-    <!-- Hostname setting -->
-    <string name="device_hostname">Eszköz elérési neve</string>
-
-    <!-- Status bar notification count -->
-    <string name="status_bar_notif_count_title">Értesítések száma</string>
-    <string name="status_bar_notif_count_summary">Folyamatban lévő értesítések száma a stástusz soron</string>
 </resources>
