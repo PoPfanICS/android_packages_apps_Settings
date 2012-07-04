@@ -57,8 +57,8 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
 
-    <!-- INTERFACE -->
-    <header android:title="@string/header_category_interface" />
+    <!-- PoPfan Category -->
+    <header android:title="@string/header_category_popfan" />
 
     <!-- PoPfan Settings -->
     <header
@@ -67,12 +67,7 @@
         android:title="@string/popfan_settings_title"
         android:icon="@drawable/ic_settings_popfan" />
 
-    <!-- Launcher -->
-    <header
-        android:id="@+id/launcher_settings"
-        android:title="@string/launcher_settings_title"
-        android:icon="@drawable/ic_settings_cmlauncher" />
-
+    <!-- Xperia Launcher -->
     <header
         android:id="@+id/se_launcher_settings"
         android:title="@string/se_launcher_settings_title"
@@ -82,6 +77,25 @@
             android:targetPackage="com.sonyericsson.home"
             android:targetClass="com.sonyericsson.home.PreferencesMainActivity" />
     </header>
+
+    <!-- Partition info -->
+        <header
+        android:icon="@drawable/ic_settings_partition"
+        android:title="@string/partition_info_title">
+        <intent
+            android:action="com.android.action.MAIN"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.PartitionInfo" />
+    </header>
+
+    <!-- INTERFACE -->
+    <header android:title="@string/header_category_interface" />
+
+    <!-- Launcher -->
+        <header
+        android:id="@+id/launcher_settings"
+        android:title="@string/launcher_settings_title"
+        android:icon="@drawable/ic_settings_cmlauncher" />
 
     <!-- Lock screen -->
     <header
@@ -108,15 +122,7 @@
         android:fragment="com.android.settings.cyanogenmod.SystemSettings"
         android:title="@string/system_settings_title" />
 
-    <!-- Partition info -->
-    <header
-        android:icon="@drawable/ic_settings_partition"
-        android:title="@string/partition_info_title">
-        <intent
-            android:action="com.android.action.MAIN"
-            android:targetPackage="com.android.settings"
-            android:targetClass="com.android.settings.PartitionInfo" />
-    </header>
+
 
     <!-- DEVICE -->
     <header android:title="@string/header_category_device" />
