@@ -1381,6 +1381,8 @@
 
         <activity android:name=".profiles.NFCProfileWriter" />
 
+        <activity android:name=".profiles.NFCProfileSelect" />
+
         <activity android:name=".cyanogenmod.LockscreenTargets" />
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />
@@ -1402,6 +1404,19 @@
 
         <activity android:name=".notificationlight.NotificationLightSettings" />
 
+<<<<<<< HEAD
+=======
+        <activity android:name=".notificationlight.BatteryLightSettings" />
+
+        <activity android:name="Settings$AnonymousStatsActivity"
+                android:label="@string/anonymous_statistics_title"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:clearTaskOnLaunch="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cmstats.AnonymousStats" />
+        </activity>
+
+>>>>>>> cyanogen/ics
         <!-- CyanogenMod activities End -->
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->

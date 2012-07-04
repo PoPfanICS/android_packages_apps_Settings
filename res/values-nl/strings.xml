@@ -1034,7 +1034,7 @@
     <string name="applications_settings_summary" msgid="6683465446264515367">"Apps beheren, sneltoetsen voor snelstarten instellen"</string>
     <string name="applications_settings_header" msgid="1014813055054356646">"App-instellingen"</string>
     <string name="install_applications" msgid="4872012136210802181">"Onbekende bronnen"</string>
-    <string name="install_unknown_applications" msgid="8149117044297868948">"Installatie van andere apps dan Market-apps toestaan"</string>
+    <string name="install_unknown_applications" msgid="8149117044297868948">"Installatie van andere apps dan Play Store-apps toestaan"</string>
     <string name="install_all_warning" product="tablet" msgid="3263360446508268880">"Uw tablet en persoonlijke gegevens zijn gevoeliger voor aanvallen door apps van onbekende bronnen. U gaat ermee akkoord dat alleen u verantwoordelijk bent voor enige schade aan uw tablet of verlies van gegevens die voortkomen uit het gebruik van deze apps."</string>
     <string name="install_all_warning" product="default" msgid="8113734576826384682">"Uw telefoon en persoonlijke gegevens zijn gevoeliger voor aanvallen door apps van onbekende bronnen. U gaat ermee akkoord dat alleen u verantwoordelijk bent voor enige schade aan uw telefoon of verlies van gegevens die voortkomen uit het gebruik van deze apps."</string>
     <string name="advanced_settings" msgid="1777249286757067969">"Geavanceerde instellingen"</string>
@@ -1269,7 +1269,7 @@
     <string name="accessibility_service_disable_warning_summary" msgid="625013894287895398">"Als u \'OK\' aanraakt, wordt <xliff:g id="SERVICE">%1$s</xliff:g> beëindigd."</string>
     <string name="accessibility_no_services_installed" msgid="7200948194639038807">"Geen services geïnstalleerd"</string>
     <string name="accessibility_service_no_apps_title" msgid="5124097563864109821">"Heeft u een schermlezer nodig?"</string>
-    <string name="accessibility_service_no_apps_message" msgid="7751662416377046539">"TalkBack levert gesproken feedback om blinde en slechtziende gebruikers te helpen navigeren. Wilt u deze app gratis installeren via Android Market?"</string>
+    <string name="accessibility_service_no_apps_message" msgid="7751662416377046539">"TalkBack levert gesproken feedback om blinde en slechtziende gebruikers te helpen navigeren. Wilt u deze app gratis installeren via de Play Store?"</string>
     <string name="accessibility_script_injection_security_warning_title" msgid="4158946557435736650">"Webscripts installeren?"</string>
     <string name="accessibility_script_injection_security_warning_summary" msgid="7706858873495386310">"Wilt u dat apps scripts installeren van Google waardoor de webinhoud van de apps toegankelijker wordt?"</string>
     <string name="accessibility_touch_exploration_warning" msgid="2442154805472989569">"Deze functie past de manier aan waarop uw apparaat reageert op aanraking. Inschakelen?"</string>
@@ -1555,7 +1555,7 @@
     <string name="show_all_anrs_summary" msgid="641908614413544127">"\'App reageert niet\' tonen voor apps op achtergr."</string>
     <string name="kill_app_longpress_back">Geforceerd afsluiten met terug-knop</string>
     <string name="kill_app_longpress_back_summary">Forceer de app op de voorgrond om af te sluiten door de terug-knop lang in te drukken</string>
-    <string name="data_usage_summary_title" msgid="3804110657238092929">"Datagebruik"</string>
+    <string name="data_usage_summary_title" msgid="3804110657238092929">"Gegevensgebruik"</string>
     <string name="data_usage_cycle" msgid="5652529796195787949">"Gegevensgebruikcyclus"</string>
     <string name="data_usage_menu_roaming" msgid="8042359966835203296">"Gegevensroaming"</string>
     <string name="data_usage_menu_restrict_background" msgid="1989394568592253331">"Achtergrondgegevens beperken"</string>
@@ -1685,7 +1685,7 @@
     <!-- Interface settings - System -->
     <string name="system_interface_title">Systeemuiterlijk</string>
     <!-- Notification Drawer -->
-    <string name="notification_drawer_title">Notificatiedrawer</string>
+    <string name="notification_drawer_title">Notificatiepaneel</string>
     <!-- Combined Bar -->
     <string name="combined_bar_title">Gecombineerde balk</string>
     <string name="combined_bar_auto_hide_title">Automatisch verbergen</string>
@@ -1701,9 +1701,9 @@
     <!-- Power Widget -->
     <string name="power_widget_title">Energiewidget</string>
     <string name="title_expanded_widget">Toon energiewidget</string>
-    <string name="summary_expanded_widget">Toon energiewidget in de notificatiedrawer</string>
+    <string name="summary_expanded_widget">Toon energiewidget in het notificatiepaneel</string>
     <string name="title_expanded_hide_onchange">Verberg bij veranderingen</string>
-    <string name="summary_expanded_hide_onchange">Verberg de notificatiedrawer als een widgetknop aangeraakt is</string>
+    <string name="summary_expanded_hide_onchange">Verberg het notificatiepaneel als een widgetknop is aangeraakt</string>
     <string name="title_expanded_hide_indicator">Verberg indicator</string>
     <string name="summary_expanded_hide_indicator">Verberg indicatoren van energiewidget</string>
     <string name="title_expanded_hide_scrollbar">Verberg schuifbalk</string>
@@ -1721,7 +1721,7 @@
     <string name="title_toggle_sync">Schakel synchronisatie in/uit</string>
     <string name="title_toggle_wifiap">Schakel Wi-Fi-AP in/uit</string>
     <string name="title_toggle_screentimeout">Schakel time-out scherm in/uit</string>
-    <string name="title_toggle_mobiledata">Schakel mobiele data in/uit</string>
+    <string name="title_toggle_mobiledata">Schakel mobiele gegevens in/uit</string>
     <string name="title_toggle_lockscreen">Schakel vergrendelscherm in/uit</string>
     <string name="title_toggle_networkmode">Schakel tussen 2G &amp; 3G</string>
     <string name="title_toggle_autorotate">Schakel automatisch roteren in/uit</string>
@@ -1913,7 +1913,7 @@
     <!-- Menu item for managing profiles -->
     <string name="profile_profiles_manage">Profielen</string>
     <string name="profile_profile_manage">Beheer profiel</string>
-    <string name="profile_applist_manage">Applijst</string>
+    <string name="profile_applist_manage">App-lijst</string>
     <string name="profile_appgroups_manage">Beheer appgroepen</string>
     <string name="profile_appgroup_manage">Beheer appgroep</string>
     <!-- Profile Settings sound mode label -->
@@ -1945,8 +1945,8 @@
     <string name="profile_settings_header">Profielinstellingen</string>
     <string name="possibleButtons">Mogelijke knoppen</string>
     <string name="toggleWifiAp">Draagbaar Wi-Fi-hotspot</string>
-    <string name="toggleData">Mobiele data</string>
-    <string name="toggleSync">Datasynchronisatie</string>
+    <string name="toggleData">Mobiele gegevens</string>
+    <string name="toggleSync">Gegevenssynchronisatie</string>
     <string name="toggleSound">Belmodus</string>
     <string name="toggleBrightness">Helderheid</string>
     <string name="toggleAutoRotate">Orientatie</string>
@@ -1975,7 +1975,7 @@
     <!-- Performance settings -->
     <string name="performance_settings_title">Prestaties</string>
     <string name="performance_settings_warning_title">Waarschuwing</string>
-    <string name="performance_settings_warning">Deze instellingen zijn experimenteel en kunnen leiden tot instabiliteit, crashes, dataverlies of hardwareschade.\n\nMeld geen fouten aan de ontwikkelaars als deze instellingen veranderd zijn.</string>
+    <string name="performance_settings_warning">Deze instellingen zijn experimenteel en kunnen leiden tot instabiliteit, crashes, gegevensverlies of hardwareschade.\n\nMeld geen fouten aan de ontwikkelaars als deze instellingen veranderd zijn.</string>
     <string name="processor_summary">Verander CPU-governor en kloksnelheid</string>
     <string name="cpu_cur_freq_title">Huidige CPU-frequentie</string>
     <string name="cpu_governors_title">CPU-governor</string>
@@ -2062,30 +2062,30 @@
 
     <!-- Backlight settings -->
     <string name="backlight_title">Automatische achtergrondverlichting</string>
-    <string name="backlight_summary">Wijzig niveaus en filtering</string>
+    <string name="backlight_summary">Niveaus &amp; filtering wijzigen</string>
     <string name="light_filter_title">Lichtsensorfilter</string>
     <string name="light_filter_enabled_title">Ingeschakeld</string>
-    <string name="light_filter_enabled_summary">Pas voortschrijdend gemiddelde filter toe op de sensorgegevens om flikkeren te verminderen</string>
-    <string name="light_filter_window_title">Vensterlengte</string>
+    <string name="light_filter_enabled_summary">Voortschrijdend gemiddeld filter toepassen op sensorgegevens om flikkeren te verminderen</string>
+    <string name="light_filter_window_title">Periode</string>
     <string name="light_filter_window_summary">Gefilterde waarde is de gemiddelde sensorwaarde tijdens deze periode</string>
-    <string name="light_filter_reset_title">Drempelwaarde herstellen</string>
-    <string name="light_filter_reset_summary">Voorbeelden die te veel van het gemiddelde afwijken herstellen de filter</string>
-    <string name="light_filter_interval_title">Voorbeeldinterval</string>
-    <string name="light_filter_interval_summary">Lage waarden zijn preciezer maar belast de CPU meer</string>
+    <string name="light_filter_reset_title">Drempelwaarde voor herstel</string>
+    <string name="light_filter_reset_summary">Afwijking in meetwaarde waarbij filter hersteld wordt</string>
+    <string name="light_filter_interval_title">Meetinterval</string>
+    <string name="light_filter_interval_summary">Lage waarden zijn preciezer, maar belasten de CPU meer</string>
     <string name="light_levels_title">Lichtniveaus</string>
-    <string name="light_levels_enabled_title">Gebruik eigen</string>
-    <string name="light_levels_dim_title">Schermdim-niveaus</string>
-    <string name="light_levels_dim_summary">Helderheid gebreikt om het scherm te dimmen</string>
+    <string name="light_levels_enabled_title">Eigen waarden gebruiken</string>
+    <string name="light_levels_dim_title">Schermdimniveaus</string>
+    <string name="light_levels_dim_summary">Helderheid gebruikt om scherm te dimmen</string>
     <string name="light_levels_editor_title">Andere niveaus bewerken\u2026</string>
-    <string name="light_decrease_enabled_title">Sta lichtvermindering toe</string>
-    <string name="light_decrease_enabled_summary">Schakel in om lichten te verminderen. Gebruik hysterese om flikkeren te verminderen</string>
-    <string name="light_decrease_hysteresis_title">Verminder hysterese</string>
-    <string name="light_decrease_hysteresis_summary">Sensorniveaus overlappen dit erg naar beneden</string>
+    <string name="light_decrease_enabled_title">Lichtvermindering toestaan</string>
+    <string name="light_decrease_enabled_summary">Vermindert verlichting. Gebruik hysterese om flikkeren te verminderen</string>
+    <string name="light_decrease_hysteresis_title">Hysterese</string>
+    <string name="light_decrease_hysteresis_summary">Percentage onder sensorniveaus zonder lichtvermindering</string>
 
     <!-- Settings - Volume (additions) -->
     <string name="volume_ring_only_description">Beltonen</string>
     <string name="link_volume_ringtones">Link volumes</string>
-    <string name="link_volume_ringtones_toast">Zorg ervoor dat u uw volume wijzigt zodat de notificatievolume wordt hersteld en overeenkomt met de beltoonvolume.</string>
+    <string name="link_volume_ringtones_toast">Let op: wijzig uw volume zodat het notificatievolume wordt hersteld en overeenkomt met het beltoonvolume.</string>
     <string name="link_volume_mutes">Link stille modi</string>
 
     <!-- Light sensor levels settings -->
@@ -2112,7 +2112,7 @@
     <!-- Wakeup options -->
     <string name="display_category_wakeup_options_title">Ontwaakinstellingen</string>
     <string name="pref_volume_wake_title">Ontwaken met volumeknop</string>
-    <string name="pref_volume_wake_summary">Als een volumeknop wordt ingedrukt ontwaakt het apparaat</string>
+    <string name="pref_volume_wake_summary">Apparaat ontwaken als een volumeknop wordt ingedrukt</string>
 
     <string name="profile_write_nfc_tag">Schrijf naar NFC-tag</string>
     <string name="profile_write_touch_tag">Raak tag aan om te schrijven</string>
@@ -2123,7 +2123,7 @@
 
     <!-- Display Settings : Render effect -->
     <string name="pref_render_effect_title">Rendereffect</string>
-    <string name="pref_render_effect_summary">Kies welke kleuren er door het scherm worden gebruikt</string>
+    <string name="pref_render_effect_summary">Door het scherm te gebruiken kleuren kiezen</string>
 
     <string name="pref_render_effect_none">Geen rendereffect</string>
     <string name="pref_render_effect_night">Nachtmodus (3700K)</string>
@@ -2151,4 +2151,37 @@
     <!-- Preference Stub -->
     <string name="stubbed">Voorkeursopvulling</string>
     <string name="stubbed_summary">Tijdelijk opgevuld totdat functionaliteit is toegevoegd</string>
+
+    <string name="toggles_not_enough_space">Max. 6 schakelaars</string>
+    <string name="weather_progress_title">Locatie controleren</string>
+    <string name="lockscreen_custom_background_title">Achtergrond</string>
+    <string name="lockscreen_custom_background_dialog_title">Kleur kiezen</string>
+    <string name="lockscreen_background_result_successful">Achtergrond gewijzigd</string>
+    <string name="lockscreen_background_result_not_successful">Achtergrond niet gewijzigd</string>
+    <string name="lockscreen_background_color_fill">Vullen met een kleur</string>
+    <string name="lockscreen_background_custom_image">Aangepaste afbeelding</string>
+    <string name="lockscreen_background_default_wallpaper">Standaardachtergrond</string>
+    <string name="font_size_preview_text">Bas wil zelf gympjes kopen van de extra cheque.</string>
+    <string name="intent_sender_data_label"><xliff:g id="data">Gegevens:</xliff:g></string>
+    <string name="intent_sender_action_label"><xliff:g id="action">Actie</xliff:g>:</string>
+    <string name="tethering_advanced_text">Geavanceerd</string>
+    <string name="tethering_lease_time_text">DHCP-leasetijd</string>
+    <string name="dhcp_lease_30mn">30 minuten</string>
+    <string name="dhcp_lease_1h">1 uur (standaard)</string>
+    <string name="dhcp_lease_2h">2 uur</string>
+    <string name="dhcp_lease_4h">4 uur</string>
+    <string name="dhcp_lease_6h">6 uur</string>
+    <string name="dhcp_lease_12h">12 uur</string>
+    <string name="dhcp_lease_24h">1 dag</string>
+    <string name="lockpattern_settings_enable_lock_before_unlock">Widgets tonen voor ontgrendeling</string>
+    <string name="ime_switcher_notify">Invoermethodemelding</string>
+    <string name="ime_switcher_notify_summary">Melding tonen voor wijzigen invoermethode</string>
+    <string name="testing_sim_toolkit">Simtoolkit</string>
+    <string name="display_category_animation_options_title">Animatie</string>
+    <string name="display_electron_beam_animation_on_title">Animatie bij scherm aan</string>
+    <string name="display_electron_beam_animation_off_title">Animatie bij scherm uit</string>
+    <string name="stylus_icon_enabled_summary">Cursor tonen indien met een stylus wordt getekend</string>
+    <string name="device_hostname">Hostnaam apparaat</string>
+    <string name="status_bar_notif_count_title">Meldingsaantal tonen</string>
+    <string name="status_bar_notif_count_summary">Aantal aanwezige meldingen tonen op de statusbalk</string>
 </resources>
