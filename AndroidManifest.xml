@@ -1404,8 +1404,6 @@
 
         <activity android:name=".notificationlight.NotificationLightSettings" />
 
-<<<<<<< HEAD
-=======
         <activity android:name=".notificationlight.BatteryLightSettings" />
 
         <activity android:name="Settings$AnonymousStatsActivity"
@@ -1416,7 +1414,6 @@
                 android:value="com.android.settings.cmstats.AnonymousStats" />
         </activity>
 
->>>>>>> cyanogen/ics
         <!-- CyanogenMod activities End -->
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
