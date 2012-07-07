@@ -65,6 +65,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
 
+    private static final String KEY_REC_VER = "rec_version";
     private static final String KEY_MOD_POPFAN_OWNER = "popfan_owner";
     private static final String KEY_MOD_NAME = "mod_name";
     private static final String KEY_MOD_VERSION = "mod_version";
@@ -88,6 +89,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
         setValueSummary(KEY_MOD_NAME, "ro.cm.name");
         setValueSummary(KEY_MOD_VERSION, "ro.cm.version");
+        setValueSummary(KEY_REC_VER, "ro.recver");
+        findPreference(KEY_REC_VER).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
         setStringSummary(KEY_MOD_POPFAN_OWNER, "Daveee10");
 

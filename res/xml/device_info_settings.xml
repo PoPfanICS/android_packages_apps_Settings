@@ -125,6 +125,12 @@
                 android:title="@string/mem_info"
                 android:summary="@string/device_info_default"/>
 
+        <!-- Recovery version -->
+        <Preference android:key="rec_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/rec_version"
+                android:summary="@string/rec_version_default" />
+
         <!-- Mod name -->
         <Preference android:key="mod_name"
                 style="?android:preferenceInformationStyle"

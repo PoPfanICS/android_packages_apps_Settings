@@ -2271,12 +2271,9 @@
     <string name="builder_info_title">Készítő</string>
 
     <string name="partition_info_title">Partítció infó</string>
-    <string name="partition_info_system">/system</string>
-    <string name="partition_info_data">/data</string>
-    <string name="partition_info_cache">/cache</string>
-    <string name="partition_info_sdcard">/sdcard (FAT)</string>
-    <string name="partition_info_sdext">/sd-ext (EXT)</string>
-    <string name="partition_info_used_of">/</string>
+
+    <string name="rec_version">Recovery verzió</string>
+    <string name="rec_version_default">Ismeretlen</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Szín választás</string>
