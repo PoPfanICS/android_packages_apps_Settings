@@ -4485,6 +4485,7 @@ found in the list of installed apps.</string>
     <string name="pref_disable_airplane_title">Show Airplane Mode</string>
     <string name="pref_disable_screenshot_title">Show Screenshot</string>
     <string name="pref_disable_profile_title">Show Profiles</string>
+    <string name="pref_disable_title_title">Show Title</string>
     <string name="pref_disable_reboot_title">Show Reboot</string>
     <string name="pref_disable_ringer_title">Show Reboot</string>
     <string name="pref_disable_bootanimation_title">Disable boot animation</string>

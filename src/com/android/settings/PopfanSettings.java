@@ -75,6 +75,7 @@ public class PopfanSettings extends PreferenceFragment
     private static final String MENU_BUTTON_ANSWERS_CALL_PROP = "pref_menu_button_answers_call";
     private static final String KEY_VOLUME_ADJUST_SOUNDS_PROP = "pref_volume_adjust_sounds";
 
+    private static final String DISABLE_TITLE_PROP = "pref_disable_title";
     private static final String DISABLE_REBOOT_PROP = "pref_disable_reboot";
     private static final String DISABLE_PROFILE_PROP = "pref_disable_profile";
     private static final String DISABLE_SCREENSHOT_PROP = "pref_disable_screenshot";
@@ -102,6 +103,7 @@ public class PopfanSettings extends PreferenceFragment
     private CheckBoxPreference mMenuButtonAnswersCall;
     private CheckBoxPreference mVolumeAdjustSounds;
 
+    private CheckBoxPreference mDisableTitlePref;
     private CheckBoxPreference mDisableRebootPref;
     private CheckBoxPreference mDisableProfilePref;
     private CheckBoxPreference mDisableScreenshotPref;
@@ -140,6 +142,7 @@ public class PopfanSettings extends PreferenceFragment
         mVolumeAdjustSounds = (CheckBoxPreference) findPreference(KEY_VOLUME_ADJUST_SOUNDS_PROP);
         mVolumeAdjustSounds.setPersistent(false);
 
+        mDisableTitlePref = (CheckBoxPreference) findPreference(DISABLE_TITLE_PROP);
         mDisableRebootPref = (CheckBoxPreference) findPreference(DISABLE_REBOOT_PROP);
         mDisableProfilePref = (CheckBoxPreference) findPreference(DISABLE_PROFILE_PROP);
         mDisableScreenshotPref = (CheckBoxPreference) findPreference(DISABLE_SCREENSHOT_PROP);
@@ -173,6 +176,7 @@ public class PopfanSettings extends PreferenceFragment
         updateMenuButtonAnswersCall();
         updateVolumeAdjustSound();
 
+        updateDisableTitle();
         updateDisableReboot();
         updateDisableProfile();
         updateDisableScreenshot();
@@ -222,6 +226,11 @@ public class PopfanSettings extends PreferenceFragment
     private void updateVolumeAdjustSound() {
         mVolumeAdjustSounds.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.VOLUME_ADJUST_SOUNDS_ENABLED, 1) != 0);
             if (DEBUG) Log.i(TAG, UPD + "VolumeAdjustSound");
+    }
+
+    private void updateDisableTitle() {
+        mDisableTitlePref.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.POWER_DIALOG_SHOW_TITLE, 1) == 1);
+            if (DEBUG) Log.i(TAG, UPD + "Title");
     }
 
     private void updateDisableReboot() {
@@ -309,6 +318,11 @@ public class PopfanSettings extends PreferenceFragment
     private void writeVolumeAdjustSound() {
         Settings.System.putInt(getActivity().getContentResolver(), Settings.System.VOLUME_ADJUST_SOUNDS_ENABLED, mVolumeAdjustSounds.isChecked() ? 1 : 0);
             if (DEBUG) Log.i(TAG, WRT + "VolumeAdjustSound");
+    }
+
+    private void writeDisableTitle() {
+        Settings.System.putInt(getActivity().getContentResolver(), Settings.System.POWER_DIALOG_SHOW_TITLE, mDisableTitlePref.isChecked() ? 1 : 0);
+            if (DEBUG) Log.i(TAG, WRT + "Title");
     }
 
     private void writeDisableReboot() {
@@ -405,6 +419,8 @@ public class PopfanSettings extends PreferenceFragment
             writeMenuButtonAnswersCall();
         } else if (preference == mVolumeAdjustSounds) {
             writeVolumeAdjustSound();
+        } else if (preference == mDisableTitlePref) {
+            writeDisableTitle();
         } else if (preference == mDisableRebootPref) {
             writeDisableReboot();
         } else if (preference == mDisableProfilePref) {

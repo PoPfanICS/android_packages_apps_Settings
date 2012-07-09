@@ -2241,6 +2241,7 @@
     <string name="pref_disable_airplane_title">Repülőgép üzemmód mutatása</string>
     <string name="pref_disable_screenshot_title">Képernyőmentés mutatása</string>
     <string name="pref_disable_profile_title">Profilok mutatása</string>
+    <string name="pref_disable_title_title">Fejléc mutatása</string>
     <string name="pref_disable_reboot_title">Újraindítás mutatása</string>
     <string name="pref_disable_ringer_title">Hangerő módok mutatása</string>
     <string name="pref_disable_bootanimation_title">Gyorsabb bootolás</string>

@@ -73,6 +73,10 @@
         android:title="@string/cat_power_dialog">
 
         <CheckBoxPreference
+            android:key="pref_disable_title"
+            android:title="@string/pref_disable_title_title" />
+
+        <CheckBoxPreference
             android:key="pref_disable_reboot"
             android:title="@string/pref_disable_reboot_title" />
 
