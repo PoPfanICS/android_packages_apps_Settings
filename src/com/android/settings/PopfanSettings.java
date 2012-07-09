@@ -359,7 +359,6 @@ public class PopfanSettings extends PreferenceFragment
         SystemProperties.set(ULTRABRIGHTNESS_PERSIST_PROP, mUltraBrightnessPref.isChecked() ? "1" : "0");
         String WOL = (mUltraBrightnessPref.isChecked() ? "i2c_pwm" : "i2c_pwm_als");
         writeOneLine("/sys/devices/platform/i2c-adapter/i2c-0/0-0036/mode", WOL);
-        writeOneLine("/data/popfan/brightnessmode", WOL);
         if (DEBUG) Log.i(TAG, WRT + "Ultra brightness");
     }
 
