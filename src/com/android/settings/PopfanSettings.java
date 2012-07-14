@@ -85,8 +85,7 @@ public class PopfanSettings extends PreferenceFragment
     private static final String DISABLE_BOOTANIMATION_PROP = "pref_disable_bootanimation";
     private static final String DISABLE_BOOTANIMATION_PERSIST_PROP = "persist.sys.nobootanimation";
     private static final String ULTRA_BRIGHTNESS = "pref_ultra_brightness";
-    private static final String ULTRABRIGHTNESS_PROP = "sys.ultrabrightness";
-    private static final String ULTRABRIGHTNESS_PERSIST_PROP = "persist.sys.ultrabrightness";
+    private static final String ULTRABRIGHTNESS_PROP = "persist.sys.ultrabrightness";
     private static final String ADB_NOTIFY_PROP = "pref_adb_notify";
 
     private static final String LOCKSCREEN_TEXT_COLOR_PROP = "pref_lockscreen_text_color";
@@ -265,7 +264,7 @@ public class PopfanSettings extends PreferenceFragment
     }
 
     private void updateUltraBrightness() {
-        if (SystemProperties.get(ULTRABRIGHTNESS_PERSIST_PROP, "0") == "0")
+        if (SystemProperties.get(ULTRABRIGHTNESS_PROP, "0") == "0")
             mUltraBrightnessPref.setChecked(false);
         else
             mUltraBrightnessPref.setChecked(true);
@@ -356,7 +355,7 @@ public class PopfanSettings extends PreferenceFragment
     }
 
     private void writeUltraBrightness() {
-        SystemProperties.set(ULTRABRIGHTNESS_PERSIST_PROP, mUltraBrightnessPref.isChecked() ? "1" : "0");
+        SystemProperties.set(ULTRABRIGHTNESS_PROP, mUltraBrightnessPref.isChecked() ? "1" : "0");
         String WOL = (mUltraBrightnessPref.isChecked() ? "i2c_pwm" : "i2c_pwm_als");
         writeOneLine("/sys/devices/platform/i2c-adapter/i2c-0/0-0036/mode", WOL);
         if (DEBUG) Log.i(TAG, WRT + "Ultra brightness");
