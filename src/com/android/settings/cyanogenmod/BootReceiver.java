@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.SystemProperties;
+import android.provider.Settings;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -35,6 +36,7 @@ public class BootReceiver extends BroadcastReceiver {
 
     private static final String CPU_SETTINGS_PROP = "sys.cpufreq.restored";
     private static final String KSM_SETTINGS_PROP = "sys.ksm.restored";
+    private static final String ULTRA_BRIGHTNESS_PROP = "persist.sys.ultrabrightness";
 
     @Override
     public void onReceive(Context ctx, Intent intent) {
@@ -54,6 +56,15 @@ public class BootReceiver extends BroadcastReceiver {
             } else {
                 SystemProperties.set(KSM_SETTINGS_PROP, "false");
             }
+        }
+
+        if (SystemProperties.getBoolean(ULTRA_BRIGHTNESS_PROP, false) == true) {
+            Utils.fileWriteOneLine("/sys/devices/platform/i2c-adapter/i2c-0/0-0036/mode", "i2c_pwm");
+            Log.e(TAG, "Ultra Brightness writing i2c_pwm: ");
+        }
+        else {
+            Utils.fileWriteOneLine("/sys/devices/platform/i2c-adapter/i2c-0/0-0036/mode", "i2c_pwm_als");
+            Log.e(TAG, "Ultra Brightness writing i2c_pwm_als: ");
         }
     }
 
