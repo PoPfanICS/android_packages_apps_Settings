@@ -582,7 +582,6 @@
     <string name="wifi_p2p_menu_search" msgid="7189970585393813135">"Ara"</string>
     <string name="wifi_p2p_menu_create_group" msgid="7595229161883902082">"Grup oluştur"</string>
     <string name="wifi_p2p_menu_remove_group" msgid="4844634506540667517">"Grubu kaldır"</string>
-    <string name="wifi_p2p_menu_advanced" msgid="2578792521809265949">"Gelişmiş"</string>
     <string name="wifi_p2p_available_devices" msgid="5943352520059654483">"Kullanılabilir cihazlar"</string>
     <string name="wifi_tether_checkbox_text">"Wi-Fi erişim noktası"</string>
     <string name="wifi_tether_enabled_subtext">"Wi-Fi erişim noktası <xliff:g id="NETWORK_SSID">%1$s</xliff:g> etkin"</string>
@@ -1656,8 +1655,6 @@
     <string name="percentage" msgid="5866131581207788624">"%%<xliff:g id="NUMBER">%d</xliff:g>"</string>
     <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Ek sistem güncellemeleri"</string>
 
-    <string name="battery_pulse_title">Düşük pil ışığını yakıp söndür</string>
-
     <!-- START: Link volumes #CM -->
     <string name="link_volume_ringtones">Zil+bildirim sesini yükselt</string>
     <string name="link_volume_ringtones_toast">Şimdiki zil sesi seviyesinin bildirim ses seviyesiyle eşleşmesi için ses seviyesini değiştirdiğinizden emin olun.</string>
@@ -1696,6 +1693,14 @@
     <string name="safe_headset_restore_title">Yüksek kulaklık sesi</string>
     <string name="safe_headset_restore_summary">Kulaklık ilk kez takıldığında yüksek ses seviyelerini engelle</string>
     <!-- END: Quiet hours #CM -->
+
+    <!-- Battery light settings #CM -->
+    <string name="battery_light_title">Şarz ışığı</string>
+    <string name="battery_low_pulse_title">Pil seviyesi düşükse yakıp söndür</string>
+    <string name="battery_light_list_title">Renkler</string>
+    <string name="battery_light_low_color_title">Düşük pil</string>
+    <string name="battery_light_medium_color_title">Şarz oluyor</string>
+    <string name="battery_light_full_color_title">Tam dolu</string>
 
     <!-- START: Backlight #CM -->
     <string name="backlight_title">Otomatik arka ışık</string>
@@ -1764,18 +1769,16 @@
     <string name="navigation_bar_reset_toast">Gezinme çubuğu varsayılanlara ayarlandı</string>
     <!-- Power Widget #CM -->
     <string name="power_widget_title">Gelişmiş durum çubuğu</string>
-    <string name="title_expanded_widget">Gelişmiş durum çubuğunu göster</string>
-    <string name="summary_expanded_widget">Bildirim ekranındaki gelişmiş durum çubuğunu göster</string>
+    <string name="power_widget_behavior">İşlemler</string>
+    <string name="power_widget_appearance">Görünüm</string>
+    <string name="title_expanded_widget">Gelişmiş durum çubuğu</string>
     <string name="title_expanded_hide_onchange">Değiştikten sonra gizle</string>
-    <string name="summary_expanded_hide_onchange">Düğme durumu değiştirildikten sonra bildirim ekranını gizler</string>
-    <string name="title_expanded_hide_indicator">Göstergeyi gizle</string>
-    <string name="summary_expanded_hide_indicator">Düğmelerin altındaki açık/kapalı göstergesini gizler</string>
+    <string name="title_expanded_hide_indicator">Göstergeleri gizle</string>
     <string name="title_expanded_hide_scrollbar">Kaydırma çubuğunu gizle</string>
-    <string name="summary_expanded_hide_scrollbar">Fazla düğme varsa kaydırma çubuğu gösterilmez</string>
     <string name="title_widget_picker">Gösterilecek düğmeler</string>
-    <string name="summary_widget_picker">Bildirim ekranındaki gösterilecek düğmeleri seçin</string>
+    <string name="summary_widget_picker">Gösterilecek düğmeleri seçin</string>
     <string name="title_widget_order">Düğme sırası</string>
-    <string name="summary_widget_order">Düğmeleri isteğinize göre sıralayın</string>
+    <string name="summary_widget_order">Düğmelerin sırasını değiştirin</string>
     <string name="title_buttons">Düğmeler</string>
     <string name="title_toggle_wifi">Wifi</string>
     <string name="title_toggle_bluetooth">Bluetooth</string>
@@ -1799,25 +1802,22 @@
     <string name="title_toggle_wimax">WiMAX</string>
     <string name="title_button_modes">Düğme ayarları</string>
     <string name="pref_brightness_mode_title">Parlaklık modları</string>
-    <string name="pref_brightness_mode_summary">Düğmenin parlaklığı nasıl değiştireceğini seçin</string>
+    <string name="pref_brightness_mode_summary">Parlaklık düğmesi modunu değiştir</string>
     <string name="cm_brightness_mode_auto">Otomatik</string>
     <string name="cm_brightness_mode_dim">Sönük</string>
     <string name="pref_network_mode_title">Şebeke modları</string>
-    <string name="pref_network_mode_summary">Düğmenin şebekeyi nasıl değiştireceğini seçin</string>
     <string name="pref_screentimeout_mode_title">Ekran kapanma modları</string>
-    <string name="pref_screentimeout_mode_summary">Düğmenin ekran kapanmasını nasıl değiştireceğini seçin</string>
     <string name="pref_ring_mode_title">Ses modları</string>
-    <string name="pref_ring_mode_summary">Düğmenin sesi nasıl değiştireceğini seçin</string>
+    <string name="pref_ring_mode_summary">Ses düğmesi modunu değiştir</string>
     <string name="cm_sound_mode_silent">Sessiz</string>
     <string name="cm_sound_mode_vibrate">Titreşim</string>
     <string name="cm_sound_mode_sound">Ses</string>
-    <string name="cm_sound_mode_soundVibrate">Ses+Titreşim</string>
+    <string name="cm_sound_mode_soundVibrate">Ses ve Titreşim</string>
     <string name="pref_flash_mode_title">El feneri modu</string>
-    <string name="pref_flash_mode_summary">Parlaklık oranını seçin</string>
-    <string name="toggles_not_enough_space">6 düğme ile sınırlı</string>
+
     <!-- Power Widget, Haptic feedback #CM -->
     <string name="expanded_haptic_feedback_title">Dokunsal geribildirim</string>
-    <string name="expanded_haptic_feedback_summary">Dokunsal geribildirimi etkinleştir</string>
+
     <!-- Status bar #CM -->
     <string name="combined_status_bar_title">@string/status_bar_title</string>
     <string name="status_bar_title">Durum çubuğu</string>
@@ -2205,5 +2205,19 @@
     <string name="lockscreen_background_color_fill">Doldurma rengi</string>
     <string name="lockscreen_background_custom_image">Özel resim</string>
     <string name="lockscreen_background_default_wallpaper">Varsayılan duvar kağıdı</string>
+
+    <!-- Ascending ringtone -->
+    <string name="increasing_ring_title">Artan zil sesi</string>
+    <string name="checkbox_increasing_ring">Etkin</string>
+    <string name="increasing_ring_min_volume_title">Başlangıç seviyesi</string>
+    <string name="increasing_ring_volume_notice">Not:\nBaşlangıç seviyesi zil sesinden yüksek ayarlanırsa zil tonu zil seviyesi kullanılarak çalınır.</string>
+    <string name="increasing_ring_interval_title">Arttırma aralığı</string>
+    <string name="increasing_ring_interval_eachring">Her zil çaldığında</string>
+    <string name="increasing_ring_interval_half_second">0.5 saniye</string>
+    <string name="increasing_ring_interval_1second">1 saniye</string>
+    <string name="increasing_ring_interval_2seconds">2 saniye</string>
+    <string name="increasing_ring_interval_3seconds">3 saniye</string>
+    <string name="increasing_ring_interval_5seconds">5 saniye</string>
+    <string name="increasing_ring_interval_10seconds">10 saniye</string>
 
 </resources>
