@@ -110,7 +110,7 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
         mResources = getResources();
         mIsLandscape = mResources.getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
         mTargetOffset = mIsLandscape && !mIsScreenLarge ? 2 : 0;
-        mTargetInset = mIsScreenLarge ? MultiWaveView.TABLET_TARGET_INSET : MultiWaveView.PHONE_TARGET_INSET;
+        mTargetInset = mResources.getDimensionPixelSize(com.android.internal.R.dimen.lockscreen_target_inset);
         mIconPicker = new IconPicker(mActivity, this);
         mPicker = new ShortcutPickHelper(mActivity, this);
         mImageTmp = new File(mActivity.getCacheDir() + "/target.tmp");
@@ -318,6 +318,7 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
      */
     private void saveAll() {
         StringBuilder targetLayout = new StringBuilder();
+        ArrayList<String> existingImages = new ArrayList<String>();
         final int maxTargets = mIsScreenLarge ? MultiWaveView.MAX_TABLET_TARGETS : MultiWaveView.MAX_PHONE_TARGETS;
         for (int i = mTargetOffset + 1; i <= mTargetOffset + maxTargets; i++) {
             String uri = mTargetStore.get(i).uri;
